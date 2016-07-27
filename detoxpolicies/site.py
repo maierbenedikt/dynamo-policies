@@ -5,6 +5,20 @@ Classes defining site requirements.
 import common.configuration as config
 import detox.configuration as detox_config
 
+class NonzeroQuota(object):
+    def __init__(self, groups, included_sites = None):
+        self.groups = groups
+        self.included_sites = included_sites
+
+    def __call__(self, site, partition, initial):
+        if self.included_sites is not None and not self.included_sites.match(site.name):
+            return False
+
+        group = self.groups[partition]
+
+        return site.group_quota(group) != 0
+
+
 class GroupOccupancy(object):
 
     def __init__(self, groups, included_sites = None):
@@ -15,7 +29,7 @@ class GroupOccupancy(object):
         if self.included_sites is not None and not self.included_sites.match(site.name):
             return False
 
-        group = groups[partition]
+        group = self.groups[partition]
 
         if site.group_quota(group) == 0:
             return False

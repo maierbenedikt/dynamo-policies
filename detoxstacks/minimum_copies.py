@@ -8,7 +8,7 @@ exceptions = ActionList()
 for line in detox_config.routine_exceptions:
     exceptions.add_action(*line)
 
-stack = [
+rule_stack = [
     exceptions,
     ProtectNonreadySite(),
     DeleteByNameOlderThan(detox_config.reco_max_age, 'd', '/*/*/RECO'),
