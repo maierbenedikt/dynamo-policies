@@ -70,6 +70,21 @@ class ProtectDiskOnly(Protect):
             return 'Dataset has no complete tape copy.'
 
 
+class ProtectByNameDiskOnly(Protect):
+    """
+    PROTECT if the dataset matches a pattern and is not on tape.
+    """
+    def __init__(self, pattern):
+        self.pattern = re.compile(fnmatch.translate(pattern))
+
+    def _do_call(self, replica, dataset_demand):
+        if not self.pattern.match(replica.dataset.name):
+            return
+
+        if not replica.dataset.on_tape:
+            return 'Dataset has no complete tape copy.'
+
+
 class ProtectNonreadySite(Protect):
     """
     PROTECT if the site is not ready.
