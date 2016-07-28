@@ -10,6 +10,7 @@ rule_stack = [
     DeleteByNameOlderThan(90., 'd', '/*/*/RECO'),
     DeleteDeprecated(),
     ProtectIncomplete(),
+    ProtectDiskOnly(),
     DeleteUnused(400.),
     ProtectMinimumCopies()
 ]
