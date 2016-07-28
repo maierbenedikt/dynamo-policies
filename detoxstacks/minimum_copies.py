@@ -1,19 +1,15 @@
-import detox.configuration as detox_config
+import os
 from detox.policy import Policy
 from detox.policies.policies import *
 
 default = Policy.DEC_DELETE
 
-exceptions = ActionList()
-for line in detox_config.routine_exceptions:
-    exceptions.add_action(*line)
-
 rule_stack = [
-    exceptions,
+    ActionList(os.environ['DYNAMO_BASE'] + '/policies/detoxstacks/exceptions.list'),
     ProtectNonreadySite(),
-    DeleteByNameOlderThan(detox_config.reco_max_age, 'd', '/*/*/RECO'),
+    DeleteByNameOlderThan(90., 'd', '/*/*/RECO'),
     DeleteDeprecated(),
     ProtectIncomplete(),
-    DeleteUnused(detox_config.max_nonusage),
+    DeleteUnused(400.),
     ProtectMinimumCopies()
 ]
