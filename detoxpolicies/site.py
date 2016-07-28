@@ -6,35 +6,35 @@ import common.configuration as config
 import detox.configuration as detox_config
 
 class NonzeroQuota(object):
-    def __init__(self, groups, included_sites = None):
-        self.groups = groups
+    def __init__(self, group, included_sites = None):
+        self.group = group
         self.included_sites = included_sites
 
     def __call__(self, site, partition, initial):
         if self.included_sites is not None and not self.included_sites.match(site.name):
             return False
 
-        group = self.groups[partition]
-
-        return site.group_quota(group) != 0
+        return site.group_quota(self.group) != 0
 
 
 class GroupOccupancy(object):
 
-    def __init__(self, groups, included_sites = None):
-        self.groups = groups
+    def __init__(self, group, included_sites = None):
+        self.group = group
         self.included_sites = included_sites
 
     def __call__(self, site, partition, initial):
+        """
+        Argument partition is ignored
+        """
+
         if self.included_sites is not None and not self.included_sites.match(site.name):
             return False
 
-        group = self.groups[partition]
-
-        if site.group_quota(group) == 0:
+        if site.group_quota(self.group) == 0:
             return False
 
         if initial:
-            return site.storage_occupancy(group) > detox_config.threshold_occupancy
+            return site.storage_occupancy(self.group) > detox_config.threshold_occupancy
         else:
-            return site.storage_occupancy(group) > config.target_site_occupancy
+            return site.storage_occupancy(self.group) > config.target_site_occupancy
