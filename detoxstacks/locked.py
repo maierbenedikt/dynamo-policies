@@ -3,9 +3,10 @@ from detox.policies.policies import *
 
 default = Policy.DEC_DELETE
 
-exceptions = ActionList(os.path.dirname(__file__) + '/exceptions.list')
+exceptions = ActionList(os.environ['DYNAMO_BASE'] + '/policies/detoxstacks/exceptions.list')
 exceptions.add_action('Keep', '*', '/*/*-PromptReco-*/*')
 exceptions.add_action('Keep', '*', '/*/*/RECO')
+exceptions.add_action('Keep', '*', '/*/*/RAWAODSIM')
 
 rule_stack = [
     exceptions,
