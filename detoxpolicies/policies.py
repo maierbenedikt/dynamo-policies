@@ -4,7 +4,7 @@ import re
 import fnmatch
 
 from detox.policy import Policy
-from common.dataformat import Dataset, Site
+from common.dataformat import Dataset, Site, DatasetReplica
 
 class Protect(object):
     """
@@ -74,15 +74,20 @@ class ProtectByNameDiskOnly(Protect):
     """
     PROTECT if the dataset matches a pattern and is not on tape.
     """
-    def __init__(self, pattern):
+    def __init__(self, pattern, protect_match = True):
         self.pattern = re.compile(fnmatch.translate(pattern))
+        self.protect_match = protect_match
 
     def _do_call(self, replica, dataset_demand):
-        if not self.pattern.match(replica.dataset.name):
+        if replica.dataset.on_tape:
             return
 
-        if not replica.dataset.on_tape:
-            return 'Dataset has no complete tape copy.'
+        if self.pattern.match(replica.dataset.name):
+            if self.protect_match:
+                return 'Dataset has no complete tape copy.'
+        else:
+            if not self.protect_match:
+                return 'Dataset has no complete tape copy.'
 
 
 class ProtectNonreadySite(Protect):
@@ -212,7 +217,7 @@ class DeleteNotAccessedFor(DeleteOlderThan):
             return None
 
         # no accesses recorded ever -> delete
-        if len(replica.accesses) == 0:
+        if len(replica.accesses[DatasetReplica.ACC_LOCAL]) + len(replica.accesses[DatasetReplica.ACC_REMOTE]) == 0:
             return 'Replica was created on ' + last_update.strftime('%Y-%m-%d') + ' but is never accessed.'
 
         for acc_type, records in replica.accesses.items(): # remote and local
@@ -238,6 +243,29 @@ class DeleteUnused(Delete):
     def _do_call(self, replica, dataset_demand):
         if dataset_demand.global_usage_rank > self.threshold:
             return 'Global usage rank is above %f.' % self.threshold
+
+
+class DeleteOldUnused(Delete):
+    """
+    DELETE if the dataset (not the replica) is old and the replica had no accesses.
+    """
+
+    def __init__(self, dataset_cutoff, replica_cutoff):
+        self.dataset_threshold = time.time() - dataset_cutoff * 3600 * 24
+        self.replica_threshold = time.time() - replica_cutoff * 3600 * 24
+
+    def _do_call(self, replica, dataset_demand):
+        if replica.dataset.last_update > self.dataset_threshold:
+            # this dataset is not old
+            return
+
+        if replica.last_block_created > self.replica_threshold:
+            # this replica was copied too recently - someone may be still waiting to use it
+            return
+
+        # no accesses recorded ever -> delete
+        if len(replica.accesses[DatasetReplica.ACC_LOCAL]) + len(replica.accesses[DatasetReplica.ACC_REMOTE]) == 0:
+            return 'Dataset is old and replica is never accessed.'
 
 
 class ActionList(object):
