@@ -13,6 +13,6 @@ rule_stack = [
     ProtectNonreadySite(),
     DeleteDeprecated(),
     ProtectIncomplete(),
-    ProtectNewDiskOnly(time.time() - 3600 * 24 * 14),
+    ProtectIncompleteTapeCopy(),
     ProtectLocked()
 ]

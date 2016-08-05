@@ -141,6 +141,15 @@ class ProtectNewDiskOnly(Protect):
             return 'Replica has no full tape copy and has a block newer than %s.' % self.threshold_str
 
 
+class ProtectIncompleteTapeCopy(Protect):
+    """
+    PROTECT if the replica is subscribed to tape but the copy is incomplete.
+    """
+    def _do_call(self, replica, dataset_demand):
+        if replica.dataset.on_tape == Dataset.TAPE_PART:
+            return 'A tape copy is requested but is not completed.'
+
+
 class DeletePartial(Delete):
     """
     DELETE if the replica is partial.
