@@ -66,7 +66,7 @@ class ProtectDiskOnly(Protect):
     PROTECT if the dataset is not on tape. 
     """
     def _do_call(self, replica, dataset_demand):
-        if not replica.dataset.on_tape:
+        if replica.dataset.on_tape != Dataset.TAPE_FULL:
             return 'Dataset has no complete tape copy.'
 
 
@@ -79,7 +79,7 @@ class ProtectByNameDiskOnly(Protect):
         self.protect_match = protect_match
 
     def _do_call(self, replica, dataset_demand):
-        if replica.dataset.on_tape:
+        if replica.dataset.on_tape == Dataset.TAPE_FULL:
             return
 
         if self.pattern.match(replica.dataset.name):
@@ -137,7 +137,7 @@ class ProtectNewDiskOnly(Protect):
         self.threshold_str = time.strftime('%Y-%m-%d', time.gmtime(self.threshold))
 
     def _do_call(self, replica, dataset_demand):
-        if not replica.dataset.on_tape and replica.last_block_created > self.threshold:
+        if replica.dataset.on_tape != Dataset.TAPE_FULL and replica.last_block_created > self.threshold:
             return 'Replica has no full tape copy and has a block newer than %s.' % self.threshold_str
 
 
