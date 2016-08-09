@@ -16,5 +16,5 @@ Delete if dataset.name == /*/*LogError*/RAW-RECO and dataset.last_update < 90 da
 Delete if dataset.name == /*/*/RECO and dataset.last_update < 90 days ago
 Delete if dataset.usage_rank > 400
 Delete if dataset.last_update < 600 days ago and replica.last_block_created < 30 days ago and replica.num_access == 0
-Protect if dataset.has_required_full_copies
+Protect if dataset.has_no_extra_copies
 Delete
