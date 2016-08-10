@@ -1,9 +1,19 @@
+### Target sites
+# .Site is either a T0 disk, T1 disk, or a T2
+# .Site must be in READY state (as given in Site Status Board http://dashb-ssb.cern.ch/dashboard/request.py)
+# .Site must not be in IGNORE activation status (DDM-internal flag)
+On site.name in T0_CERN_CH_Disk T1_*_Disk T2_* and site.status == READY and site.active != IGNORE
+
+### Deletion trigger and strategy
+When site.occupancy > 0.5 until site.occupancy < 0.45
+
+### Replica protection / deletion policies
 # Each dataset replica (parts subscribed to DataOps) is passed through the following policies.
 # The first matching line determines the fate of the replica:
 #  If a Protect line matches, the replica is protected.
 #  If a Delete line matches, the replica is considered as a deletion candidate.
-# If a site requires deletion (is filled up to more than 90%), replicas in the deletion candidate list
-# are deleted in the order of increasing popularity (i.e. the least popular replica goes first).
+# If the site needs deletion, replicas in the deletion candidate list are deleted in the order
+# specified by the strategy definition at the bottom.
 
 # Requested by ??? on ???; validity ???
 Protect if dataset.name == /HLTPhysics/CMSSW_7_4_14-2015_10_20_newconditions0_74X_dataRun2_HLTValidation_Candidate_2015_10_12_10_41_09-v1/RECO
@@ -26,12 +36,6 @@ Protect if dataset.name == /*/*/RAWAODSIM
 # Requested by Production team on Aug 9 2016; validity 1-2 weeks
 Protect if dataset.name == /*/*RunIISummer16DR80*/*
 
-# Do not delete from sites not in READY state (as given in Site Status Board http://dashb-ssb.cern.ch/dashboard/request.py)
-Protect if site.status != READY
-
-# Do not delete from sites in IGNORE status (set by DDM team by hand)
-Protect if site.active == IGNORE
-
 # Do not delete if any part of the replica is locked
 Protect if replica.has_locked_block
 
@@ -46,3 +50,9 @@ Protect if dataset.on_tape == PARTIAL
 
 # If nothing matches, the replica is a deletion candidate
 Delete
+
+### Deletion strategy
+# A removal of a replica at one site can make another replica elsewhere a last copy.
+# Static deletion removes as many replicas as needed from the sites at once.
+# Replicas of least-popular datasets are deleted first.
+Strategy static order by dataset.usage_rank

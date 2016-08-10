@@ -1,16 +1,21 @@
 # Generic policy stack protecting minimum copies
-# Each dataset replica (parts subscribed to DataOps) is passed through the following policies.
+
+### Target sites
+# .Site is either a T1 disk or a T2
+# .Site must be in READY state (as given in Site Status Board http://dashb-ssb.cern.ch/dashboard/request.py)
+# .Site must not be in IGNORE activation status (DDM-internal flag)
+On site.name in T1_*_Disk T2_* and site.status == READY and site.active != IGNORE
+
+### Deletion trigger and strategy
+When site.occupancy > 0.9 until site.occupancy < 0.85
+
+### Replica protection / deletion policies
+# Each dataset replica (parts subscribed in the given partition) is passed through the following policies.
 # The first matching line determines the fate of the replica:
 #  If a Protect line matches, the replica is protected.
 #  If a Delete line matches, the replica is considered as a deletion candidate.
-# If a site requires deletion (is filled up to more than 90%), replicas in the deletion candidate list
-# are deleted in the order of increasing popularity (i.e. the least popular replica goes first).
-
-# Do not delete from sites not in READY state (as given in Site Status Board http://dashb-ssb.cern.ch/dashboard/request.py)
-Protect if site.status != READY
-
-# Do not delete from sites in IGNORE status (set by DDM team by hand)
-Protect if site.active == IGNORE
+# If the site needs deletion, replicas in the deletion candidate list are deleted in the order
+# specified by the strategy definition at the bottom.
 
 # Delete replicas of deprecated datasets
 Delete if dataset.status == DEPRECATED
@@ -45,3 +50,9 @@ Protect if dataset.has_no_extra_copies
 
 # If nothing matches, the replica is a deletion candidate
 Delete
+
+### Deletion strategy
+# A removal of a replica at one site can make another replica elsewhere a last copy.
+# Iterative deletion re-evaluates the protection decisions after each deletion of a replica.
+# Replicas of least-popular datasets are deleted first.
+Strategy iterative order by dataset.usage_rank
