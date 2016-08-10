@@ -12,5 +12,5 @@ Protect if site.active == IGNORE
 Protect if replica.has_locked_block
 Delete if dataset.status == DEPRECATED
 Protect if replica.incomplete
-Protect if dataset.on_tape == PART
+Protect if dataset.on_tape == PARTIAL
 Delete
