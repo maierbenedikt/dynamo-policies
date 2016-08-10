@@ -1,20 +1,57 @@
-# Each dataset replica in AnalysisOps partition is passed through the following policy lines until a matching line is found.
-# If no match is found, replica is considered up for deletion.
+# Each dataset replica (parts subscribed to DataOps) is passed through the following policies.
+# The first matching line determines the fate of the replica:
+#  If a Protect line matches, the replica is protected.
+#  If a Delete line matches, the replica is considered as a deletion candidate.
+# If a site requires deletion (is filled up to more than 90%), replicas in the deletion candidate list
+# are deleted in the order of increasing popularity (i.e. the least popular replica goes first).
 
+# Requested by ??? on ???; validity ???
 Protect if dataset.name == /HLTPhysics/CMSSW_7_4_14-2015_10_20_newconditions0_74X_dataRun2_HLTValidation_Candidate_2015_10_12_10_41_09-v1/RECO
 Protect if dataset.name == /HLTPhysics/CMSSW_7_4_14-2015_10_20_reference_74X_dataRun2_HLT_v2-v1/RECO
+
+# Requested by TSG? on ???; validity ???
 Protect if dataset.name == /ZeroBias*/Run2015A-PromptReco-v1/RECO
 Protect if dataset.name == /ZeroBias*/Run2015A-27Jan2016-v1/RECO
+
+# Requested by TOTEM? on ???; validity ???
 Protect if dataset.name == /*TOTEM*/*Run2015D*/RECO
+
+# Do not delete from sites not in READY state (as given in Site Status Board http://dashb-ssb.cern.ch/dashboard/request.py)
 Protect if site.status != READY
+
+# Do not delete from sites in IGNORE status (set by DDM team by hand)
 Protect if site.active == IGNORE
+
+# Delete replicas of deprecated datasets
 Delete if dataset.status == DEPRECATED
+
+# Do not delete if replica is incomplete (not all subscribed data is copied to the site)
 Protect if replica.incomplete
+
+# Do not delete non-RECO datasets that are not fully on tape
 Protect if dataset.on_tape != FULL and dataset.name != /*/*/RECO
+
+# Decided by CompOps on Aug 5, 2016
+# Delete big transient replicas N days after the dataset is closed
 Delete if dataset.name == /*/*/RAW and dataset.last_update < 60 days ago
 Delete if dataset.name == /*/*LogError*/RAW-RECO and dataset.last_update < 90 days ago
 Delete if dataset.name == /*/*/RECO and dataset.last_update < 90 days ago
+
+# Delete unpopular replicas
+# Usage rank is the average of
+#  (days since last CRAB access) - (# accesses) - (size in TB)
+# across all sites that host copies of the dataset. Popular datasets have lower ranking values.
+# If no access has been recorded for a replica, days since completion of the transfer of the last block is used.
 Delete if dataset.usage_rank > 400
+
+# Old unpopular datasets can still stay in the system if we keep bouncing its copies between sites.
+# If a dataset is old but was copied recently, either some user actually wanted to analyze it or DDM
+# copied it to offload some site. In the former case, we would assume the user wouldn't leave it sitting
+# for more than 30 days.
 Delete if dataset.last_update < 600 days ago and replica.last_block_created < 30 days ago and replica.num_access == 0
+
+# Protect if this is one of the last copies
 Protect if dataset.has_no_extra_copies
+
+# If nothing matches, the replica is a deletion candidate
 Delete
