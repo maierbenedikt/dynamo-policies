@@ -7,6 +7,7 @@ exceptions = ActionList(os.environ['DYNAMO_BASE'] + '/policies/detoxstacks/excep
 exceptions.add_action('Keep', '*', '/*/*-PromptReco-*/*')
 exceptions.add_action('Keep', '*', '/*/*/RECO')
 exceptions.add_action('Keep', '*', '/*/*/RAWAODSIM')
+exceptions.add_action('Keep', '*', '/*/*RunIISummer16DR80*/*')
 
 rule_stack = [
     exceptions,
