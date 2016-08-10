@@ -146,7 +146,7 @@ class ProtectIncompleteTapeCopy(Protect):
     PROTECT if the replica is subscribed to tape but the copy is incomplete.
     """
     def _do_call(self, replica, dataset_demand):
-        if replica.dataset.on_tape == Dataset.TAPE_PART:
+        if replica.dataset.on_tape == Dataset.TAPE_PARTIAL:
             return 'A tape copy is requested but is not completed.'
 
 
