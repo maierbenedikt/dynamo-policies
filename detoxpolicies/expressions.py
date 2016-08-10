@@ -2,11 +2,6 @@ from common.dataformat import Dataset, Site, DatasetReplica
 
 BOOL_TYPE, NUMERIC_TYPE, TEXT_TYPE, TIME_TYPE = range(4)
 
-def dataset_has_no_extra_copies(replica):
-    dataset = replica.dataset
-    num_copies = sum(1 for r in dataset.replicas if r.is_full())
-    return num_copies <= dataset.demand.required_copies
-
 def replica_incomplete(replica):
     if replica.is_complete:
         return False
@@ -29,7 +24,7 @@ expressions = {
     'dataset.status': (lambda r: r.dataset.status, NUMERIC_TYPE, lambda v: eval('Dataset.STAT_' + v)),
     'dataset.on_tape': (lambda r: r.dataset.on_tape, NUMERIC_TYPE, lambda v: eval('Dataset.TAPE_' + v)),
     'dataset.last_update': (lambda r: r.dataset.last_update, TIME_TYPE),
-    'dataset.has_no_extra_copies': (dataset_has_no_extra_copies, BOOL_TYPE),
+    'dataset.num_full_disk_copy': (lambda r: sum(1 for rep in r.dataset.replicas if rep.is_full()), NUMERIC_TYPE),
     'dataset.usage_rank': (lambda r: r.dataset.demand.global_usage_rank, NUMERIC_TYPE),
     'site.status': (lambda r: r.site.status, NUMERIC_TYPE, lambda v: eval('Site.STAT_' + v)),
     'site.active': (lambda r: r.site.active, NUMERIC_TYPE, lambda v: eval('Site.ACT_' + v)),

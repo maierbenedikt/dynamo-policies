@@ -1,3 +1,7 @@
+"""
+Functions in this file can be loaded as parts of a policy stack but are not used in production any more.
+"""
+
 import time
 import datetime
 import re
@@ -103,12 +107,22 @@ class ProtectMinimumCopies(Protect):
     """
     PROTECT if the replica has fewer than or equal to minimum number of full copies.
     """
+    def __init__(self):
+        self.exceptions = [
+            (re.compile(fnmatch.translate('/*/*/MINIAOD*')), 2)
+        ]
+
     def _do_call(self, replica):
-        required_copies = replica.dataset.demand.required_copies
         num_copies = 0
         for replica in replica.dataset.replicas:
             if replica.is_full():
                 num_copies += 1
+
+        required_copies = 1
+        for pattern, nmin in self.exceptions:
+            if pattern.match(replica.dataset.name):
+                required_copies = nmin
+                break
 
         if num_copies <= required_copies:
             return 'Dataset has <= ' + str(required_copies) + ' copies.'
