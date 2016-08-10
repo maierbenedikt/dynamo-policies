@@ -6,6 +6,7 @@ Protect if dataset.name == /*TOTEM*/*Run2015D*/RECO
 Protect if dataset.name == /*/*-PromptReco-*/*
 Protect if dataset.name == /*/*/RECO
 Protect if dataset.name == /*/*/RAWAODSIM
+Protect if dataset.name == /*/*RunIISummer16DR80*/*
 Protect if site.status != READY
 Protect if site.active == IGNORE
 Protect if replica.has_locked_block
