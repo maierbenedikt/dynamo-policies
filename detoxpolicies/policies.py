@@ -10,8 +10,8 @@ class Protect(object):
     """
     Base class for callable object returning a PROTECT decision.
     """
-    def __call__(self, replica, dataset_demand):
-        reason = self._do_call(replica, dataset_demand)
+    def __call__(self, replica):
+        reason = self._do_call(replica)
         if reason is not None:
             return replica, Policy.DEC_PROTECT, reason
 
@@ -20,8 +20,8 @@ class Delete(object):
     """
     Base class for callable object returning a DELETE decision.
     """
-    def __call__(self, replica, dataset_demand):
-        reason = self._do_call(replica, dataset_demand)
+    def __call__(self, replica):
+        reason = self._do_call(replica)
         if reason is not None:
             return replica, Policy.DEC_DELETE, reason
 
@@ -32,7 +32,7 @@ class ProtectIncomplete(Protect):
     Checking individual block replicas because the incompleteness of the dataset replica can be due to
     blocks not in the partition.
     """
-    def _do_call(self, replica, dataset_demand):
+    def _do_call(self, replica):
         if replica.is_complete:
             return
 
@@ -45,10 +45,10 @@ class ProtectLocked(Protect):
     """
     PROTECT if any block of the dataset is locked.
     """
-    def _do_call(self, replica, dataset_demand):
+    def _do_call(self, replica):
         
         for block_replica in replica.block_replicas:
-            if block_replica in dataset_demand.locked_blocks:
+            if block_replica in replica.dataset.demand.locked_blocks:
                 return 'Locked block exists.'
 
 
@@ -56,7 +56,7 @@ class ProtectCustodial(Protect):
     """
     PROTECT if the replica is custodial.
     """
-    def _do_call(self, replica, dataset_demand):
+    def _do_call(self, replica):
         if replica.is_custodial:
             return 'Replica is custodial.'
 
@@ -65,7 +65,7 @@ class ProtectDiskOnly(Protect):
     """
     PROTECT if the dataset is not on tape. 
     """
-    def _do_call(self, replica, dataset_demand):
+    def _do_call(self, replica):
         if replica.dataset.on_tape != Dataset.TAPE_FULL:
             return 'Dataset has no complete tape copy.'
 
@@ -78,7 +78,7 @@ class ProtectByNameDiskOnly(Protect):
         self.pattern = re.compile(fnmatch.translate(pattern))
         self.protect_match = protect_match
 
-    def _do_call(self, replica, dataset_demand):
+    def _do_call(self, replica):
         if replica.dataset.on_tape == Dataset.TAPE_FULL:
             return
 
@@ -94,7 +94,7 @@ class ProtectNonreadySite(Protect):
     """
     PROTECT if the site is not ready.
     """
-    def _do_call(self, replica, dataset_demand):
+    def _do_call(self, replica):
         if replica.site.status != Site.STAT_READY or replica.site.active == Site.ACT_IGNORE:
             return 'Site is not in ready state.'
 
@@ -103,8 +103,8 @@ class ProtectMinimumCopies(Protect):
     """
     PROTECT if the replica has fewer than or equal to minimum number of full copies.
     """
-    def _do_call(self, replica, dataset_demand):
-        required_copies = dataset_demand.required_copies
+    def _do_call(self, replica):
+        required_copies = replica.dataset.demand.required_copies
         num_copies = 0
         for replica in replica.dataset.replicas:
             if replica.is_full():
@@ -122,7 +122,7 @@ class ProtectNotOwnedBy(Protect):
     def __init__(self, group_name):
         self.group_name = group_name
 
-    def _do_call(self, replica, dataset_demand):
+    def _do_call(self, replica):
         if replica.group is None or replica.group.name != self.group_name:
             return 'Not all parts of replica is owned by ' + self.group_name
 
@@ -136,7 +136,7 @@ class ProtectNewDiskOnly(Protect):
         self.threshold = threshold
         self.threshold_str = time.strftime('%Y-%m-%d', time.gmtime(self.threshold))
 
-    def _do_call(self, replica, dataset_demand):
+    def _do_call(self, replica):
         if replica.dataset.on_tape != Dataset.TAPE_FULL and replica.last_block_created > self.threshold:
             return 'Replica has no full tape copy and has a block newer than %s.' % self.threshold_str
 
@@ -145,7 +145,7 @@ class ProtectIncompleteTapeCopy(Protect):
     """
     PROTECT if the replica is subscribed to tape but the copy is incomplete.
     """
-    def _do_call(self, replica, dataset_demand):
+    def _do_call(self, replica):
         if replica.dataset.on_tape == Dataset.TAPE_PARTIAL:
             return 'A tape copy is requested but is not completed.'
 
@@ -154,7 +154,7 @@ class DeletePartial(Delete):
     """
     DELETE if the replica is partial.
     """
-    def _do_call(self, replica, dataset_demand):
+    def _do_call(self, replica):
         if replica.is_partial():
             return 'Replica is partial.'
 
@@ -163,7 +163,7 @@ class DeleteDeprecated(Delete):
     """
     DELETE if the dataset of the replica is deprecated.
     """
-    def _do_call(self, replica, dataset_demand):
+    def _do_call(self, replica):
         if replica.dataset.status == Dataset.STAT_DEPRECATED:
             return 'Dataset is deprecated.'
 
@@ -198,7 +198,7 @@ class DeleteByNameOlderThan(DeleteOlderThan):
         self.pattern = re.compile(fnmatch.translate(pattern))
         self.use_dataset_time = use_dataset_time
 
-    def _do_call(self, replica, dataset_demand):
+    def _do_call(self, replica):
         if not self.pattern.match(replica.dataset.name):
             return
 
@@ -219,7 +219,7 @@ class DeleteNotAccessedFor(DeleteOlderThan):
     def __init__(self, threshold, unit):
         DeleteOlderThan.__init__(self, threshold, unit)
 
-    def _do_call(self, replica, dataset_demand):
+    def _do_call(self, replica):
         last_update = datetime.datetime.utcfromtimestamp(replica.last_block_created).date()
         if last_update > self.cutoff:
             # the dataset was updated after the cutoff -> don't delete
@@ -249,8 +249,8 @@ class DeleteUnused(Delete):
     def __init__(self, threshold):
         self.threshold = threshold
 
-    def _do_call(self, replica, dataset_demand):
-        if dataset_demand.global_usage_rank > self.threshold:
+    def _do_call(self, replica):
+        if replica.dataset.demand.global_usage_rank > self.threshold:
             return 'Global usage rank is above %f.' % self.threshold
 
 
@@ -263,7 +263,7 @@ class DeleteOldUnused(Delete):
         self.dataset_threshold = time.time() - dataset_cutoff * 3600 * 24
         self.replica_threshold = time.time() - replica_cutoff * 3600 * 24
 
-    def _do_call(self, replica, dataset_demand):
+    def _do_call(self, replica):
         if replica.dataset.last_update > self.dataset_threshold:
             # this dataset is not old
             return
@@ -322,7 +322,7 @@ class ActionList(object):
         for list_path in list_paths:
             self.load_list(list_path)
 
-    def __call__(self, replica, dataset_demand):
+    def __call__(self, replica):
         """
         Pass the replica through the patterns and take action on the *first* match.
         """
