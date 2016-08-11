@@ -12,7 +12,7 @@ class InvalidExpression(Exception):
 
 class Predicate(object):
     @staticmethod
-    def get(self, vardef, op = '', rhs_expr = ''):
+    def get(vardef, op = '', rhs_expr = ''):
         if op in UnaryExpr.operators:
             if rhs_expr != '':
                 raise InvalidOperator(op)
@@ -42,14 +42,14 @@ class UnaryExpr(Predicate):
     operators = ['', 'not']
 
     @staticmethod
-    def get(self, vardef, op):
+    def get(vardef, op):
         if op == '':
-            return Predicate(vardef)
+            return Predicate(*vardef)
         elif op == 'not':
-            return Negate(vardef)
+            return Negate(*vardef)
 
     def __init__(self, vardef):
-        Predicate.__init__(*vardef)
+        Predicate.__init__(self, *vardef)
 
         if self.vtype != expressions.BOOL_TYPE:
             raise InvalidOperator(op)
@@ -62,7 +62,7 @@ class BinaryExpr(Predicate):
     operators = ['==', '!=', '<', '>', '=~', '!~']
 
     @staticmethod
-    def get(self, vardef, op, rhs_expr):
+    def get(vardef, op, rhs_expr):
         if op == '==':
             return Eq(vardef, rhs_expr)
         elif op == '!=':
@@ -79,7 +79,7 @@ class BinaryExpr(Predicate):
             raise InvalidOperator(op)
 
     def __init__(self, vardef, rhs_expr):
-        Predicate.__init__(*(vardef[:2]))
+        Predicate.__init__(self, *(vardef[:2]))
 
         if len(vardef) == 3:
             self.rhs = vardef[2](rhs_expr)

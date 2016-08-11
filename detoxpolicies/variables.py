@@ -19,7 +19,7 @@ def replica_has_locked_block(replica):
 
     return False
 
-expressions = {
+replica_vardefs = {
     'dataset.name': (lambda r: r.dataset.name, TEXT_TYPE),
     'dataset.status': (lambda r: r.dataset.status, NUMERIC_TYPE, lambda v: eval('Dataset.STAT_' + v)),
     'dataset.on_tape': (lambda r: r.dataset.on_tape, NUMERIC_TYPE, lambda v: eval('Dataset.TAPE_' + v)),
@@ -32,4 +32,34 @@ expressions = {
     'replica.last_block_created': (lambda r: r.last_block_created, TIME_TYPE),
     'replica.num_access': (lambda r: len(r.accesses[DatasetReplica.ACC_LOCAL]) + len(r.accesses[DatasetReplica.ACC_REMOTE]), NUMERIC_TYPE),
     'replica.has_locked_block': (replica_has_locked_block, BOOL_TYPE)
+}
+
+# Site variable definition must be a generator of a function
+# Generator takes a partition as an argument and the return function takes a site as an argument
+def partition_occupancy_comp(partition):
+    def occupancy(site):
+        group = site.group_present(partition)
+        if group is None:
+            return 0.
+        else:
+            return site.storage_occupancy(group)
+
+    return occupancy
+
+def partition_quota(partition):
+    def quota(site):
+        group = site.group_present(partition)
+        if group is None:
+            return 0.
+        else:
+            return site.group_quota(group)
+
+    return quota
+
+site_vardefs = {
+    'site.name': (lambda p: lambda s: s.name, TEXT_TYPE),
+    'site.status': (lambda p: lambda s: s.status, NUMERIC_TYPE, lambda v: eval('Site.STAT_' + v)),
+    'site.active': (lambda p: lambda s: s.active, NUMERIC_TYPE, lambda v: eval('Site.ACT_' + v)),
+    'site.occupancy': (partition_occupancy_comp, NUMERIC_TYPE),
+    'site.quota': (partition_quota, NUMERIC_TYPE)
 }

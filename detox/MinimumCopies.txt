@@ -4,10 +4,11 @@
 # .Site is either a T1 disk or a T2
 # .Site must be in READY state (as given in Site Status Board http://dashb-ssb.cern.ch/dashboard/request.py)
 # .Site must not be in IGNORE activation status (DDM-internal flag)
-On site.name in T1_*_Disk T2_* and site.status == READY and site.active != IGNORE
+On site.name in [T1_*_Disk T2_*] and site.status == READY and site.active != IGNORE
 
-### Deletion trigger and strategy
-When site.occupancy > 0.9 until site.occupancy < 0.85
+### Deletion trigger
+When site.occupancy > 0.9
+Until site.occupancy < 0.85
 
 ### Replica protection / deletion policies
 # Each dataset replica (parts subscribed in the given partition) is passed through the following policies.
@@ -18,36 +19,36 @@ When site.occupancy > 0.9 until site.occupancy < 0.85
 # specified by the strategy definition at the bottom.
 
 # Delete replicas of deprecated datasets
-Delete if dataset.status == DEPRECATED
+Delete dataset.status == DEPRECATED
 
 # Do not delete if replica is incomplete (not all subscribed data is copied to the site)
-Protect if replica.incomplete
+Protect replica.incomplete
 
 # Do not delete non-RECO datasets that are not fully on tape
-Protect if dataset.on_tape != FULL and dataset.name != /*/*/RECO
+Protect dataset.on_tape != FULL and dataset.name !~ /*/*/RECO
 
 # Decided by CompOps on Aug 5, 2016
 # Delete big transient replicas N days after the dataset is closed
-Delete if dataset.name == /*/*/RAW and dataset.last_update < 60 days ago
-Delete if dataset.name == /*/*LogError*/RAW-RECO and dataset.last_update < 90 days ago
-Delete if dataset.name == /*/*/RECO and dataset.last_update < 90 days ago
+Delete dataset.name =~ /*/*/RAW and dataset.last_update < 60 days ago
+Delete dataset.name =~ /*/*LogError*/RAW-RECO and dataset.last_update < 90 days ago
+Delete dataset.name =~ /*/*/RECO and dataset.last_update < 90 days ago
 
 # Delete unpopular replicas
 # Usage rank is the average of
 #  (days since last CRAB access) - (# accesses) - (size in TB)
 # across all sites that host copies of the dataset. Popular datasets have lower ranking values.
 # If no access has been recorded for a replica, days since completion of the transfer of the last block is used.
-Delete if dataset.usage_rank > 400
+Delete dataset.usage_rank > 400
 
 # Old unpopular datasets can still stay in the system if we keep bouncing its copies between sites.
 # If a dataset is old but was copied recently, either some user actually wanted to analyze it or DDM
 # copied it to offload some site. In the former case, we would assume the user wouldn't leave it sitting
 # for more than 30 days.
-Delete if dataset.last_update < 600 days ago and replica.last_block_created < 30 days ago and replica.num_access == 0
+Delete dataset.last_update < 600 days ago and replica.last_block_created < 30 days ago and replica.num_access == 0
 
-# Protect if this is one of the last copies
-Protect if dataset.name == '/*/*/MINIAOD*' and dataset.num_full_disk_copy < 3
-Protect if dataset.name != '/*/*/MINIAOD*' and dataset.num_full_disk_copy < 2
+# Protect this is one of the last copies
+Protect dataset.name =~ '/*/*/MINIAOD*' and dataset.num_full_disk_copy < 3
+Protect dataset.name !~ '/*/*/MINIAOD*' and dataset.num_full_disk_copy < 2
 
 # If nothing matches, the replica is a deletion candidate
 Delete
