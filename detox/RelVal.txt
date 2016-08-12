@@ -12,5 +12,6 @@ Delete
 ### Deletion strategy
 # A removal of a replica at one site can make another replica elsewhere a last copy.
 # Iterative deletion re-evaluates the protection decisions after each deletion of a replica.
-# Replicas of least-popular datasets are deleted first.
-Strategy static order by dataset.last_update
+# Replicas of oldest datasets are deleted first.
+Strategy static
+Order increasing dataset.last_update

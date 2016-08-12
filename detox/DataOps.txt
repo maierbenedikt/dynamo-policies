@@ -5,8 +5,8 @@
 On site.name in [T0_CERN_CH_Disk T1_*_Disk T2_*] and site.status == READY and site.active != IGNORE
 
 ### Deletion trigger
-When site.occupancy > 0.5
-Until site.occupancy < 0.45
+When site.occupancy > 0.9
+Until site.occupancy < 0.85
 
 ### Replica protection / deletion policies
 # Each dataset replica (parts subscribed to DataOps) is passed through the following policies.
@@ -53,7 +53,7 @@ Protect dataset.on_tape == PARTIAL
 Delete
 
 ### Deletion strategy
-# A removal of a replica at one site can make another replica elsewhere a last copy.
 # Static deletion removes as many replicas as needed from the sites at once.
-# Replicas of least-popular datasets are deleted first.
-Strategy static order by dataset.usage_rank
+# Replicas of least-popular datasets are deleted first (large usage rank value = low popularity)
+Strategy static
+Order decreasing dataset.usage_rank
