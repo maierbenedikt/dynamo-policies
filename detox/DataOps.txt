@@ -21,21 +21,21 @@ Protect dataset.name == /HLTPhysics/CMSSW_7_4_14-2015_10_20_newconditions0_74X_d
 Protect dataset.name == /HLTPhysics/CMSSW_7_4_14-2015_10_20_reference_74X_dataRun2_HLT_v2-v1/RECO
 
 # Requested by TSG? on ???; validity ???
-Protect dataset.name =~ /ZeroBias*/Run2015A-PromptReco-v1/RECO
-Protect dataset.name =~ /ZeroBias*/Run2015A-27Jan2016-v1/RECO
+Protect dataset.name == /ZeroBias*/Run2015A-PromptReco-v1/RECO
+Protect dataset.name == /ZeroBias*/Run2015A-27Jan2016-v1/RECO
 
 # Requested by TOTEM? on ???; validity ???
-Protect dataset.name =~ /*TOTEM*/*Run2015D*/RECO
+Protect dataset.name == /*TOTEM*/*Run2015D*/RECO
 
 # Requested by ??? on ???; validity ???
-Protect dataset.name =~ /*/*-PromptReco-*/*
-Protect dataset.name =~ /*/*/RECO
+Protect dataset.name == /*/*-PromptReco-*/*
+Protect dataset.name == /*/*/RECO
 
 # Requested by Production team? on ???; validity ???
-Protect dataset.name =~ /*/*/RAWAODSIM
+Protect dataset.name == /*/*/RAWAODSIM
 
 # Requested by Production team on Aug 9 2016; validity 1-2 weeks
-Protect dataset.name =~ /*/*RunIISummer16DR80*/*
+Protect dataset.name == /*/*RunIISummer16DR80*/*
 
 # Do not delete if any part of the replica is locked
 Protect replica.has_locked_block

@@ -25,13 +25,13 @@ Delete dataset.status == DEPRECATED
 Protect replica.incomplete
 
 # Do not delete non-RECO datasets that are not fully on tape
-Protect dataset.on_tape != FULL and dataset.name !~ /*/*/RECO
+Protect dataset.on_tape != FULL and dataset.name != /*/*/RECO
 
 # Decided by CompOps on Aug 5, 2016
 # Delete big transient replicas N days after the dataset is closed
-Delete dataset.name =~ /*/*/RAW and dataset.last_update < 60 days ago
-Delete dataset.name =~ /*/*LogError*/RAW-RECO and dataset.last_update < 90 days ago
-Delete dataset.name =~ /*/*/RECO and dataset.last_update < 90 days ago
+Delete dataset.name == /*/*/RAW and dataset.last_update < 60 days ago
+Delete dataset.name == /*/*LogError*/RAW-RECO and dataset.last_update < 90 days ago
+Delete dataset.name == /*/*/RECO and dataset.last_update < 90 days ago
 
 # Delete unpopular replicas
 # Usage rank is the average of
@@ -47,8 +47,8 @@ Delete dataset.usage_rank > 400
 Delete dataset.last_update < 600 days ago and replica.last_block_created < 30 days ago and replica.num_access == 0
 
 # Protect this is one of the last copies
-Protect dataset.name =~ '/*/*/MINIAOD*' and dataset.num_full_disk_copy < 3
-Protect dataset.name !~ '/*/*/MINIAOD*' and dataset.num_full_disk_copy < 2
+Protect dataset.name == '/*/*/MINIAOD*' and dataset.num_full_disk_copy < 3
+Protect dataset.name != '/*/*/MINIAOD*' and dataset.num_full_disk_copy < 2
 
 # If nothing matches, the replica is a deletion candidate
 Delete
