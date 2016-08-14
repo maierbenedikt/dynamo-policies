@@ -1,17 +1,12 @@
 ### Target sites
-# .Site must be in READY state (as given in Site Status Board http://dashb-ssb.cern.ch/dashboard/request.py)
-# .Site must not be in IGNORE activation status (DDM-internal flag)
 On site.name == T2_CH_CERN and site.status == READY and site.active != IGNORE
 
 ### Deletion trigger
 When site.occupancy > 0.9
 Until site.occupancy < 0.85
 
+### Replica protection / deletion policies
 Delete
 
 ### Deletion strategy
-# A removal of a replica at one site can make another replica elsewhere a last copy.
-# Iterative deletion re-evaluates the protection decisions after each deletion of a replica.
-# Replicas of oldest datasets are deleted first.
-Strategy static
 Order increasing dataset.last_update
