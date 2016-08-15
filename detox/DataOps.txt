@@ -25,5 +25,5 @@ Protect dataset.name == /*/*RunIISummer16DR80*/*
 # Default decision
 Delete
 
-### Deletion strategy
+### Candidate ordering
 Order decreasing dataset.usage_rank

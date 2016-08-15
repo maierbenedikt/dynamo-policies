@@ -8,5 +8,5 @@ Until site.occupancy < 0.85
 ### Replica protection / deletion policies
 Delete
 
-### Deletion strategy
+### Candidate ordering
 Order increasing dataset.last_update

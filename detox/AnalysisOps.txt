@@ -32,5 +32,5 @@ Protect dataset.num_full_disk_copy < 2
 # Default decision
 Delete
 
-### Deletion strategy
+### Candidate ordering
 Order decreasing dataset.usage_rank
