@@ -9,4 +9,4 @@ Until site.occupancy < 0.85
 Delete
 
 ### Candidate ordering
-Order increasing dataset.last_update
+Order increasing dataset.last_used
