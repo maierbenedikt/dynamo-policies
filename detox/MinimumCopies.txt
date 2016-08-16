@@ -6,18 +6,18 @@ When site.occupancy > 0.9
 Until site.occupancy < 0.85
 
 ### Replica protection / deletion policies
-Delete dataset.status == DEPRECATED and dataset.last_update < 1 week ago
-Delete dataset.status == INVALID and dataset.last_update < 1 week ago
+Delete dataset.status == DEPRECATED and dataset.last_update older_than 1 week ago
+Delete dataset.status == INVALID and dataset.last_update older_than 1 week ago
 Protect replica.incomplete
 
 Protect dataset.on_tape != FULL and dataset.name != /*/*/RECO
 
-Delete dataset.name == /*/*/RAW and dataset.last_update < 60 days ago
-Delete dataset.name == /*/*LogError*/RAW-RECO and dataset.last_update < 90 days ago
-Delete dataset.name == /*/*/RECO and dataset.last_update < 90 days ago
+Delete dataset.name == /*/*/RAW and dataset.last_update older_than 60 days ago
+Delete dataset.name == /*/*LogError*/RAW-RECO and dataset.last_update older_than 90 days ago
+Delete dataset.name == /*/*/RECO and dataset.last_update older_than 90 days ago
 
 Delete dataset.usage_rank > 400
-Delete dataset.last_update < 600 days ago and replica.last_block_created < 30 days ago and replica.num_access == 0
+Delete dataset.last_update older_than 600 days ago and replica.last_block_created older_than 30 days ago and replica.num_access == 0
 
 Protect dataset.name == /*/*/MINIAOD* and dataset.num_full_disk_copy < 3
 Protect dataset.num_full_disk_copy < 2
