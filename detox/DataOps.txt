@@ -6,8 +6,8 @@ When site.occupancy > 0.9
 Until site.occupancy < 0.85
 
 ### Replica protection / deletion policies
-Delete dataset.status == DEPRECATED
-Delete dataset.status == INVALID
+Delete dataset.status == DEPRECATED and dataset.last_update < 1 week ago
+Delete dataset.status == INVALID and dataset.last_update < 1 week ago
 Protect replica.incomplete
 Protect replica.has_locked_block
 Protect dataset.on_tape == PARTIAL
