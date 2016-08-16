@@ -48,7 +48,7 @@ Note to developers: New expressions can be added in lib/detox/variables.py
 1.3 Exceptions requested by various gruops
 Various groups can request specific protection rules and special deletion lists. These are typically based on dataset names. Following exceptions are currently implemented:
 
- - AnalysisOps & DataOps
+ - AnalysisOps
   . Requested by ??? on ???; validity ???
     Protect dataset.name == /HLTPhysics/CMSSW_7_4_14-2015_10_20_newconditions0_74X_dataRun2_HLTValidation_Candidate_2015_10_12_10_41_09-v1/RECO
     Protect dataset.name == /HLTPhysics/CMSSW_7_4_14-2015_10_20_reference_74X_dataRun2_HLT_v2-v1/RECO
@@ -64,7 +64,3 @@ Various groups can request specific protection rules and special deletion lists.
   . Requested by ??? on ???; validity ???
     Protect dataset.name == /*/*-PromptReco-*/*
     Protect dataset.name == /*/*/RECO
-    Protect dataset.name == /*/*/RAWAODSIM
-
-  . Requested by Production team on Aug 9 2016; validity 1-2 weeks
-    Protect dataset.name == /*/*RunIISummer16DR80*/*
