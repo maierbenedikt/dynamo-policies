@@ -14,6 +14,7 @@ Protect dataset.on_tape == PARTIAL
 
 Protect dataset.name == /*/*-PromptReco-*/*
 Protect dataset.name == /*/*/RECO
+Protect dataset.name == /*/*/RAWAODSIM
 
 # Default decision
 Delete
