@@ -1,0 +1,15 @@
+On site.name in [T0_*_MSS T1_* T2_*] and site.status == READY
+
+When always
+Until never
+
+Delete dataset.name == /*/*Phys14DR*/*
+Delete dataset.name == /*/*Fall13*/*
+Delete dataset.name == /*/*Spring14*/*
+Delete dataset.name == /*/*UpgradePhase1*/*
+Delete dataset.name == /*/*Fall14*/*
+Delete dataset.name == /*/*UpgradeStdGeom*/*
+Delete dataset.name == /*/*UpgradeHCAL_PixelPhase1*/*
+
+Protect
+Order none
