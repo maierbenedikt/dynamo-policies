@@ -31,6 +31,7 @@ The policy configuration fully defines the behavior of Detox. The file contains 
  . dataset.last_update: Timestamp of last update (e.g. last block created) of the dataset.
  . dataset.num_full_disk_copy
  . dataset.usage_rank: sum_{site}[(# days since last access or update to the replica) - (replica size in TB)] / (# sites)
+ . dataset.release: CMSSW release of the dataset in format X_Y_Z[_w]
  <Site>
  . site.name
  . site.status: Status given by Site Status Board (http://dashb-ssb.cern.ch/dashboard/request.py). Values are READY, WAITROOM, MORGUE, UNKNOWN
@@ -40,6 +41,7 @@ The policy configuration fully defines the behavior of Detox. The file contains 
  <Dataset replica>
  . replica.incomplete: Not all of scheduled block transfers are done.
  . replica.last_block_created: Timestamp of the last block transfer completion.
+ . replica.last_used: Timestamp of the later of the dataset last update or the last recorded access to the replica.
  . replica.num_access: Number of CRAB accesses recorded in popdb for the last 2 years.
  . replica.has_locked_block
 
@@ -64,3 +66,6 @@ Various groups can request specific protection rules and special deletion lists.
   . Requested by ??? on ???; validity ???
     Protect dataset.name == /*/*-PromptReco-*/*
     Protect dataset.name == /*/*/RECO
+
+  . Requested by Production; validity ~end of Aug 2016
+    Protect dataset.name == /*/*/RAWAODSIM
