@@ -1,0 +1,16 @@
+### Target sites
+On site.name in [T1_*_Disk T2_*] and site.status == READY and site.active != IGNORE
+
+### Deletion trigger
+When always
+Until never
+
+### Replica protection / deletion policies
+Delete dataset.status == DEPRECATED
+Delete dataset.status == INVALID
+
+# Default decision
+Protect
+
+### Candidate ordering
+Order none
