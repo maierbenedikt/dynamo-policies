@@ -1,4 +1,4 @@
-On site.name in [T0_*_MSS T1_* T2_*] and site.status == READY
+On site.name in [T1_* T2_*] and site.status == READY
 
 When always
 Until never
