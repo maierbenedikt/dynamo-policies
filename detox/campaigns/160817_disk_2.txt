@@ -3,13 +3,13 @@ On site.name in [T1_*_Disk T2_*] and site.status == READY
 When always
 Until never
 
-Delete dataset.name == /*/*Phys14DR*/*
-Delete dataset.name == /*/*Fall13*/*
-Delete dataset.name == /*/*Spring14*/*
-Delete dataset.name == /*/*UpgradePhase1*/*
-Delete dataset.name == /*/*Fall14*/*
-Delete dataset.name == /*/*UpgradeStdGeom*/*
-Delete dataset.name == /*/*UpgradeHCAL_PixelPhase1*/*
+Dismiss dataset.name == /*/*Phys14DR*/*
+Dismiss dataset.name == /*/*Fall13*/*
+Dismiss dataset.name == /*/*Spring14*/*
+Dismiss dataset.name == /*/*UpgradePhase1*/*
+Dismiss dataset.name == /*/*Fall14*/*
+Dismiss dataset.name == /*/*UpgradeStdGeom*/*
+Dismiss dataset.name == /*/*UpgradeHCAL_PixelPhase1*/*
 
 Protect
 Order none

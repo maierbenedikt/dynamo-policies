@@ -6,8 +6,8 @@ When site.occupancy > 0.9
 Until site.occupancy < 0.85
 
 ### Replica protection / deletion policies
-AlwaysDelete dataset.status == DEPRECATED and dataset.last_update older_than 1 week ago
-AlwaysDelete dataset.status == INVALID and dataset.last_update older_than 1 week ago
+Delete dataset.status == DEPRECATED and dataset.last_update older_than 1 week ago
+Delete dataset.status == INVALID and dataset.last_update older_than 1 week ago
 Protect replica.incomplete
 
 Protect dataset.name == /HLTPhysics/CMSSW_7_4_14-2015_10_20_newconditions0_74X_dataRun2_HLTValidation_Candidate_2015_10_12_10_41_09-v1/RECO
@@ -19,18 +19,18 @@ Protect dataset.name == /*TOTEM*/*Run2015D*/RECO
 Protect dataset.on_tape != FULL and dataset.name != /*/*/RECO
 
 # Decided by CompOps on Aug 5, 2016
-Delete dataset.name == /*/*/RAW and dataset.last_update older_than 60 days ago
-Delete dataset.name == /*/*LogError*/RAW-RECO and dataset.last_update older_than 90 days ago
-Delete dataset.name == /*/*/RECO and dataset.last_update older_than 90 days ago
+Dismiss dataset.name == /*/*/RAW and dataset.last_update older_than 60 days ago
+Dismiss dataset.name == /*/*LogError*/RAW-RECO and dataset.last_update older_than 90 days ago
+Dismiss dataset.name == /*/*/RECO and dataset.last_update older_than 90 days ago
 
-Delete dataset.usage_rank > 400
-Delete dataset.last_update older_than 600 days ago and replica.last_block_created older_than 30 days ago and replica.num_access == 0
+Dismiss dataset.usage_rank > 400
+Dismiss dataset.last_update older_than 600 days ago and replica.last_block_created older_than 30 days ago and replica.num_access == 0
 
 Protect dataset.name == /*/*/MINIAOD* and dataset.num_full_disk_copy < 3
 Protect dataset.num_full_disk_copy < 2
 
 # Default decision
-Delete
+Dismiss
 
 ### Candidate ordering
 Order decreasing dataset.usage_rank

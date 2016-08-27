@@ -6,8 +6,8 @@ When always
 Until never
 
 ### Replica protection / deletion policies
-Delete dataset.status == DEPRECATED
-Delete dataset.status == INVALID
+Dismiss dataset.status == DEPRECATED
+Dismiss dataset.status == INVALID
 
 # Default decision
 Protect

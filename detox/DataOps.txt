@@ -6,18 +6,17 @@ When site.occupancy > 0.9
 Until site.occupancy < 0.85
 
 ### Replica protection / deletion policies
-AlwaysDelete dataset.status == DEPRECATED and dataset.last_update older_than 1 week ago
-AlwaysDelete dataset.status == INVALID and dataset.last_update older_than 1 week ago
+Delete dataset.status == DEPRECATED and dataset.last_update older_than 1 week ago
+Delete dataset.status == INVALID and dataset.last_update older_than 1 week ago
 Protect replica.incomplete
 Protect replica.has_locked_block
 Protect dataset.on_tape == PARTIAL
 
 Protect dataset.name == /*/*-PromptReco-*/*
 Protect dataset.name == /*/*/RECO
-Protect dataset.name == /*/*/RAWAODSIM
 
 # Default decision
-Delete
+Dismiss
 
 ### Candidate ordering
 Order decreasing dataset.usage_rank
