@@ -1,0 +1,18 @@
+On site.name == T*_MSS and site.status == READY
+
+When always
+Until never
+
+# Protect locked datasets
+Protect replica.has_locked_block
+
+Dismiss dataset.name == /*/*Phys14DR*/*
+Dismiss dataset.name == /*/*Fall13*/*
+Dismiss dataset.name == /*/*Spring14*/*
+Dismiss dataset.name == /*/*UpgradePhase1*/*
+Dismiss dataset.name == /*/*Fall14*/*
+Dismiss dataset.name == /*/*UpgradeStdGeom*/*
+Dismiss dataset.name == /*/*UpgradeHCAL_PixelPhase1*/*
+
+Protect
+Order none
