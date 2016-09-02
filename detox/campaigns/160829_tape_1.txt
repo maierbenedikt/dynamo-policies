@@ -69,6 +69,7 @@ Protect dataset.name == /LambdaBToPsiMuMu_2MuPEtaFilter_Tight_7TeV-pythia6-evtge
 Protect dataset.name == /LambdaBToPsiMuMu_2MuPtEtaFilter_8TeV-pythia6-evtgen/Summer12-START50_V13-v*/GEN-SIM
 Protect dataset.name == /LambdaBToJpsiPK_BMuonFilter_MSEL5_TuneZ2star_8TeV-pythia6-evtgen/Summer12-START53_V7C-v*/GEN-SIM
 Protect dataset.name == /LambdaBToJpsiPK_MSEL5_TuneZ2star_8TeV-pythia6-evtgen/Summer12-START53_V7C-v*/GEN-SIM
+Protect dataset.name == /MinBias_TuneCUETP8M1_13TeV-pythia8/RunIIWinter15GS-MCRUN2_71_V1-v*/GEN-SIM
 Protect dataset.name == /QCD_Pt_20_30_EMEnriched_TuneZ2star_8TeV_pythia6/Summer12-START50_V13-v3/GEN-SIM
 Protect dataset.name == /QCD_Pt-120to170_TuneZ2star_13TeV-pythia6/Summer13-START53_V7C-v*/GEN-SIM
 
