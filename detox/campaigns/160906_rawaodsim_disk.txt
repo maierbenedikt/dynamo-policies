@@ -1,0 +1,9 @@
+On site.name in [T0_CH_CERN_Disk T1_*_Disk T2_*] and site.status == READY
+
+When always
+Until never
+
+Dismiss dataset.name == /*/*/RAWAODSIM
+
+Protect
+Order none
