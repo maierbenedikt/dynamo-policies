@@ -1,5 +1,5 @@
 ### Target sites
-On site.name == T2_CH_CERN and site.status == READY and site.active != IGNORE
+On site.name == T2_CH_CERN
 
 ### Deletion trigger
 When site.occupancy > 0.9
