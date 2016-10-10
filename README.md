@@ -69,3 +69,7 @@ Various groups can request specific protection rules and special deletion lists.
 
   . Requested by Production; validity ~end of Aug 2016
     Protect dataset.name == /*/*/RAWAODSIM
+
+  . Requested by Unified; datasets that are not tracked by Unified are now in DataOps with no locks.
+    Temporary protection until locking becomes available.
+    Protect dataset.name == *RelVal* and dataset.on_tape != FULL
