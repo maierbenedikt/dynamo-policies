@@ -44,6 +44,7 @@ The policy configuration fully defines the behavior of Detox. The file contains 
  . replica.last_used: Timestamp of the later of the dataset last update or the last recorded access to the replica.
  . replica.num_access: Number of CRAB accesses recorded in popdb for the last 2 years.
  . replica.has_locked_block
+ . replica.owners: List of groups that own the blocks of the replica
 
 Note to developers: New expressions can be added in lib/detox/variables.py
 
@@ -62,10 +63,12 @@ Various groups can request specific protection rules and special deletion lists.
   . Requested by TOTEM? on ???; validity ???
     Protect dataset.name == /*TOTEM*/*Run2015D*/RECO
 
+  . Determined by CompOps Aug 2016 (First one commented out while post-ICHEP 16 rereco rolls out)
+    #Dismiss dataset.name == /*/*/RAW and dataset.last_update older_than 60 days ago
+    Dismiss dataset.name == /*/*LogError*/RAW-RECO and dataset.last_update older_than 90 days ago
+    Dismiss dataset.name == /*/*/RECO and dataset.last_update older_than 90 days ago
+
  - DataOps
   . Requested by ??? on ???; validity ???
     Protect dataset.name == /*/*-PromptReco-*/*
     Protect dataset.name == /*/*/RECO
-
-  . Requested by Production; validity ~end of Aug 2016
-    Protect dataset.name == /*/*/RAWAODSIM
