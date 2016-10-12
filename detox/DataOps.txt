@@ -12,6 +12,8 @@ Protect replica.incomplete
 Protect replica.has_locked_block
 Protect dataset.on_tape == PARTIAL
 Protect dataset.name == *RelVal* and dataset.on_tape != FULL
+Protect dataset.name == *relval* and dataset.on_tape != FULL
+Protect dataset.name == *CMSSW* and dataset.on_tape != FULL
 
 Protect dataset.name == /*/*-PromptReco-*/*
 Protect dataset.name == /*/*/RECO
