@@ -53,26 +53,33 @@ Various groups can request specific protection rules and special deletion lists.
 
  - AnalysisOps
   . Requested by ??? on ???; validity ???
+
     Protect dataset.name == /HLTPhysics/CMSSW_7_4_14-2015_10_20_newconditions0_74X_dataRun2_HLTValidation_Candidate_2015_10_12_10_41_09-v1/RECO
     Protect dataset.name == /HLTPhysics/CMSSW_7_4_14-2015_10_20_reference_74X_dataRun2_HLT_v2-v1/RECO
  
   . Requested by TSG? on ???; validity ???
+
     Protect dataset.name == /ZeroBias*/Run2015A-PromptReco-v1/RECO
     Protect dataset.name == /ZeroBias*/Run2015A-27Jan2016-v1/RECO
  
   . Requested by TOTEM? on ???; validity ???
+
     Protect dataset.name == /*TOTEM*/*Run2015D*/RECO
 
-  . Determined by CompOps Aug 2016 (First one commented out while post-ICHEP 16 rereco rolls out)
-    #Dismiss dataset.name == /*/*/RAW and dataset.last_update older_than 60 days ago
+  . Determined by CompOps Aug 2016
+    RAW checks Production locks as a temporary measure until 2016 rereco finishes.
+
+    Dismiss dataset.name == /*/*/RAW and not replica.has_locked_block and dataset.last_update older_than 60 days ago
     Dismiss dataset.name == /*/*LogError*/RAW-RECO and dataset.last_update older_than 90 days ago
     Dismiss dataset.name == /*/*/RECO and dataset.last_update older_than 90 days ago
 
  - DataOps
   . Requested by Production
+
     Protect dataset.name == /*/*/RECO and dataset.num_full_disk_copy == 0
 
   . Requested by Unified; datasets that are not tracked by Unified are now in DataOps with no locks.
+
     Temporary protection until locking becomes available.
     Protect dataset.name == *RelVal* and dataset.on_tape != FULL
     Protect dataset.name == *relval* and dataset.on_tape != FULL
