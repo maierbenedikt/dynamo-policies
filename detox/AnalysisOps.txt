@@ -19,7 +19,7 @@ Protect dataset.name == /*TOTEM*/*Run2015D*/RECO
 Protect dataset.on_tape != FULL and dataset.name != /*/*/RECO
 
 # Decided by CompOps on Aug 5, 2016
-#Dismiss dataset.name == /*/*/RAW and dataset.last_update older_than 60 days ago
+Dismiss dataset.name == /*/*/RAW and not replica.has_locked_block and dataset.last_update older_than 60 days ago
 Dismiss dataset.name == /*/*LogError*/RAW-RECO and dataset.last_update older_than 90 days ago
 Dismiss dataset.name == /*/*/RECO and dataset.last_update older_than 90 days ago
 
