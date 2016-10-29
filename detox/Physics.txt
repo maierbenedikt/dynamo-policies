@@ -13,9 +13,13 @@ Protect replica.incomplete
 Protect dataset.on_tape == PARTIAL
 
 Protect replica.has_locked_block and replica.owners contains DataOps
+
 Protect dataset.name == *RelVal* and dataset.on_tape != FULL
 Protect dataset.name == *relval* and dataset.on_tape != FULL
 Protect dataset.name == *CMSSW* and dataset.on_tape != FULL
+
+Protect dataset.name == /*/*/RAW and dataset.on_tape != FULL
+Protect dataset.name == /*/Run2016H*/RAW
 
 Protect dataset.name == /*/*/RECO and dataset.num_full_disk_copy == 0 and dataset.last_update newer_than 90 days ago
 
@@ -29,7 +33,7 @@ Protect dataset.name == /*TOTEM*/*Run2015D*/RECO
 
 Protect dataset.on_tape != FULL and dataset.name != /*/*/RECO
 
-#Dismiss dataset.name == /*/*/RAW and dataset.last_update older_than 60 days ago
+Dismiss dataset.name == /*/*/RAW and dataset.last_update older_than 60 days ago and not replica.has_locked_block
 Dismiss dataset.name == /*/*LogError*/RAW-RECO and dataset.last_update older_than 90 days ago
 Dismiss dataset.name == /*/*/RECO and dataset.last_update older_than 90 days ago
 

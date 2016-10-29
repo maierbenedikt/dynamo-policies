@@ -51,7 +51,24 @@ Note to developers: New expressions can be added in lib/detox/variables.py
 1.3 Exceptions requested by various gruops
 Various groups can request specific protection rules and special deletion lists. These are typically based on dataset names. Following exceptions are currently implemented:
 
- - AnalysisOps
+ - Physics
+  . Requested by Production
+
+    Protect dataset.name == /*/*/RECO and dataset.num_full_disk_copy == 0 and dataset.last_update newer_than 90 days ago
+
+  . Requested by Production; datasets that are not tracked by Unified are now in DataOps with no locks.
+    Temporary protection until locking becomes available.
+
+    Protect dataset.name == *RelVal* and dataset.on_tape != FULL
+    Protect dataset.name == *relval* and dataset.on_tape != FULL
+    Protect dataset.name == *CMSSW* and dataset.on_tape != FULL
+
+  . Decided in Offline & Computing meeting on Oct 28, to be absolutely sure that we don't delete RAW
+    Second line is temporary until we have block-level deletions. Protects against a very rare event where PhEDEx has transferred all that has been produced but then a new block is injected right after Dynamo synchronizes with PhEDEx.
+
+    Protect dataset.name == /*/*/RAW and dataset.on_tape != FULL
+    Protect dataset.name == /*/Run2016H*/RAW
+
   . Requested by ??? on ???; validity ???
 
     Protect dataset.name == /HLTPhysics/CMSSW_7_4_14-2015_10_20_newconditions0_74X_dataRun2_HLTValidation_Candidate_2015_10_12_10_41_09-v1/RECO
@@ -73,14 +90,3 @@ Various groups can request specific protection rules and special deletion lists.
     Dismiss dataset.name == /*/*LogError*/RAW-RECO and dataset.last_update older_than 90 days ago
     Dismiss dataset.name == /*/*/RECO and dataset.last_update older_than 90 days ago
 
- - DataOps
-  . Requested by Production
-
-    Protect dataset.name == /*/*/RECO and dataset.num_full_disk_copy == 0
-
-  . Requested by Unified; datasets that are not tracked by Unified are now in DataOps with no locks.
-
-    Temporary protection until locking becomes available.
-    Protect dataset.name == *RelVal* and dataset.on_tape != FULL
-    Protect dataset.name == *relval* and dataset.on_tape != FULL
-    Protect dataset.name == *CMSSW* and dataset.on_tape != FULL

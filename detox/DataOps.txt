@@ -6,17 +6,16 @@ When site.occupancy > 0.9
 Until site.occupancy < 0.85
 
 ### Replica protection / deletion policies
-Delete dataset.status == DEPRECATED and dataset.last_update older_than 1 week ago
-Delete dataset.status == INVALID and dataset.last_update older_than 1 week ago
 Protect replica.incomplete
-Protect replica.has_locked_block
 Protect dataset.on_tape == PARTIAL
+
+Protect replica.has_locked_block
+
 Protect dataset.name == *RelVal* and dataset.on_tape != FULL
 Protect dataset.name == *relval* and dataset.on_tape != FULL
 Protect dataset.name == *CMSSW* and dataset.on_tape != FULL
 
-Protect dataset.name == /*/*-PromptReco-*/*
-Protect dataset.name == /*/*/RECO
+Protect dataset.name == /*/*/RECO and dataset.num_full_disk_copy == 0 and dataset.last_update newer_than 90 days ago
 
 # Default decision
 Dismiss
