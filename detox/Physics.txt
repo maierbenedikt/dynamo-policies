@@ -35,7 +35,7 @@ Protect dataset.on_tape != FULL and dataset.name != /*/*/RECO
 
 Dismiss dataset.name == /*/*/RAW and dataset.last_update older_than 60 days ago and not replica.has_locked_block
 Dismiss dataset.name == /*/*LogError*/RAW-RECO and dataset.last_update older_than 90 days ago
-Dismiss dataset.name == /*/*/RECO and dataset.last_update older_than 90 days ago
+Dismiss dataset.name == /*/*/RECO and dataset.name != /*/Run*-*-*-v*/RECO and dataset.last_update older_than 90 days ago
 
 Dismiss dataset.usage_rank > 400
 Dismiss dataset.last_update older_than 600 days ago and replica.last_block_created older_than 30 days ago and replica.num_access == 0
