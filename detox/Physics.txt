@@ -19,7 +19,6 @@ Protect dataset.name == *relval* and dataset.on_tape != FULL
 Protect dataset.name == *CMSSW* and dataset.on_tape != FULL
 
 Protect dataset.name == /*/*/RAW and dataset.on_tape != FULL
-Protect dataset.name == /*/Run2016H*/RAW
 
 Protect dataset.name == /*/*/RECO and dataset.num_full_disk_copy == 0 and dataset.last_update newer_than 90 days ago
 
