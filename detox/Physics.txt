@@ -22,6 +22,8 @@ Protect dataset.name == /*/*/RAW and dataset.on_tape != FULL
 
 Protect dataset.name == /*/*/RECO and dataset.num_full_disk_copy == 0 and dataset.last_update newer_than 90 days ago
 
+Protect replica.owners contains DataOps and dataset.on_tape == NONE
+
 DeleteOwner(DataOps) replica.owners contains DataOps
 
 Protect dataset.name == /HLTPhysics/CMSSW_7_4_14-2015_10_20_newconditions0_74X_dataRun2_HLTValidation_Candidate_2015_10_12_10_41_09-v1/RECO
