@@ -1,5 +1,5 @@
 ### Target sites
-On site.name in [T0_*_Disk T1_*_Disk T2_*]
+On site.name in [T1_*_Disk T2_*]
 
 ### Deletion trigger
 When always
