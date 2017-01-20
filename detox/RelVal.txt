@@ -6,6 +6,8 @@ When site.occupancy > 0.9
 Until site.occupancy < 0.85
 
 ### Replica protection / deletion policies
+Protect replica.incomplete
+
 Dismiss
 
 ### Candidate ordering
