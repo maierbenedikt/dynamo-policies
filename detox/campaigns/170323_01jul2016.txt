@@ -1,0 +1,9 @@
+On site.name in [T0_* T1_* T2_*]
+
+When always
+Until never
+
+Dismiss dataset.name == /*/Run2016*-01Jul2016*/*
+
+Protect
+Order none
