@@ -11,6 +11,7 @@ Delete dataset.status == INVALID and dataset.last_update older_than 1 week ago
 
 Protect replica.incomplete
 Protect dataset.on_tape == PARTIAL
+Protect dataset.is_last_transfer_source
 
 Protect replica.has_locked_block and replica.owners contains DataOps
 
