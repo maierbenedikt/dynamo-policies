@@ -13,7 +13,7 @@ Protect replica.incomplete
 Protect dataset.on_tape == PARTIAL
 Protect dataset.is_last_transfer_source
 
-Protect replica.has_locked_block and replica.owners contains DataOps
+Protect replica.has_locked_block
 
 Protect dataset.name == *RelVal* and dataset.on_tape != FULL
 Protect dataset.name == *relval* and dataset.on_tape != FULL
