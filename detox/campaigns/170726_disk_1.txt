@@ -12,7 +12,7 @@ Until never
 
 Protect dataset.name == /*/*2017*/*
 Protect dataset.name == /*/*/DQMIO
-Protect dataset.name == /*/*/MINIAOD
+Protect dataset.name == /*/*/MINIAODSIM
 
 # Protect RECO
 
