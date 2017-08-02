@@ -64,29 +64,12 @@ Various groups can request specific protection rules and special deletion lists.
     Protect dataset.name == *CMSSW* and dataset.on_tape != FULL
 
   . Decided in Offline & Computing meeting on Oct 28, to be absolutely sure that we don't delete RAW
-    Second line is temporary until we have block-level deletions. Protects against a very rare event where PhEDEx has transferred all that has been produced but then a new block is injected right after Dynamo synchronizes with PhEDEx.
 
     Protect dataset.name == /*/*/RAW and dataset.on_tape != FULL
-    Protect dataset.name == /*/Run2016H*/RAW
-
-  . Requested by ??? on ???; validity ???
-
-    Protect dataset.name == /HLTPhysics/CMSSW_7_4_14-2015_10_20_newconditions0_74X_dataRun2_HLTValidation_Candidate_2015_10_12_10_41_09-v1/RECO
-    Protect dataset.name == /HLTPhysics/CMSSW_7_4_14-2015_10_20_reference_74X_dataRun2_HLT_v2-v1/RECO
- 
-  . Requested by TSG? on ???; validity ???
-
-    Protect dataset.name == /ZeroBias*/Run2015A-PromptReco-v1/RECO
-    Protect dataset.name == /ZeroBias*/Run2015A-27Jan2016-v1/RECO
- 
-  . Requested by TOTEM? on ???; validity ???
-
-    Protect dataset.name == /*TOTEM*/*Run2015D*/RECO
 
   . Determined by CompOps Aug 2016
-    RAW checks Production locks as a temporary measure until 2016 rereco finishes.
 
-    Dismiss dataset.name == /*/*/RAW and not replica.has_locked_block and dataset.last_update older_than 60 days ago
+    Dismiss dataset.name == /*/*/RAW and dataset.last_update older_than 60 days ago
     Dismiss dataset.name == /*/*LogError*/RAW-RECO and dataset.last_update older_than 90 days ago
     Dismiss dataset.name == /*/*/RECO and dataset.last_update older_than 90 days ago
 

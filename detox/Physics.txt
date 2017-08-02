@@ -27,12 +27,6 @@ Protect replica.owners contains DataOps and dataset.on_tape == NONE
 
 DeleteOwner(DataOps) replica.owners contains DataOps
 
-Protect dataset.name == /HLTPhysics/CMSSW_7_4_14-2015_10_20_newconditions0_74X_dataRun2_HLTValidation_Candidate_2015_10_12_10_41_09-v1/RECO
-Protect dataset.name == /HLTPhysics/CMSSW_7_4_14-2015_10_20_reference_74X_dataRun2_HLT_v2-v1/RECO
-Protect dataset.name == /ZeroBias*/Run2015A-PromptReco-v1/RECO
-Protect dataset.name == /ZeroBias*/Run2015A-27Jan2016-v1/RECO
-Protect dataset.name == /*TOTEM*/*Run2015D*/RECO
-
 Dismiss dataset.name == /*/*/RAW and dataset.last_update older_than 60 days ago and not replica.has_locked_block
 Dismiss dataset.name == /*/*LogError*/RAW-RECO and dataset.last_update older_than 90 days ago
 Dismiss dataset.name == /*/*/RECO and dataset.name != /*/Run*-*-*-v*/RECO and dataset.last_update older_than 90 days ago
