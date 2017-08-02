@@ -1,16 +1,19 @@
 ### Target sites
+### IMPORTANT IMPORTANT IMPORTANT IMPORTANT     ###
+### DO NOT ADD T0_CH_CERN_Disk HERE!!! RAW DATA ###
+### FRESHLY TRANSFERED FROM P5 ARE UNSUBSCRIBED ###
+### AT T0!!!                                    ###
 On site.name in [T1_*_Disk T2_*]
 
 ### Deletion trigger
 When always
 Until never
 
-### Replica protection / deletion policies
-Dismiss dataset.status == DEPRECATED
-Dismiss dataset.status == INVALID
+# Safeguard
+Protect dataset.name == /*/*/RAW and dataset.on_tape != FULL
 
 # Default decision
-Protect
+Dismiss
 
 ### Candidate ordering
 Order none
