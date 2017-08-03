@@ -56,13 +56,6 @@ Various groups can request specific protection rules and special deletion lists.
 
     Protect dataset.name == /*/*/RECO and dataset.num_full_disk_copy == 0 and dataset.last_update newer_than 90 days ago
 
-  . Requested by Production; datasets that are not tracked by Unified are now in DataOps with no locks.
-    Temporary protection until locking becomes available.
-
-    Protect dataset.name == *RelVal* and dataset.on_tape != FULL
-    Protect dataset.name == *relval* and dataset.on_tape != FULL
-    Protect dataset.name == *CMSSW* and dataset.on_tape != FULL
-
   . Decided in Offline & Computing meeting on Oct 28, to be absolutely sure that we don't delete RAW
 
     Protect dataset.name == /*/*/RAW and dataset.on_tape != FULL

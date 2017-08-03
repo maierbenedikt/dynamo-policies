@@ -15,10 +15,6 @@ Protect dataset.is_last_transfer_source
 
 Protect replica.has_locked_block
 
-Protect dataset.name == *RelVal* and dataset.on_tape != FULL
-Protect dataset.name == *relval* and dataset.on_tape != FULL
-Protect dataset.name == *CMSSW* and dataset.on_tape != FULL
-
 Protect dataset.name == /*/*/RAW and dataset.on_tape != FULL
 
 Protect dataset.name == /*/*/RECO and dataset.num_full_disk_copy == 0 and dataset.last_update newer_than 90 days ago
