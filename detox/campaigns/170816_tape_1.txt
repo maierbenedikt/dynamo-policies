@@ -1,0 +1,367 @@
+On site.name == T*_MSS and site.status == READY
+
+When always
+Until never
+
+# Protect locked datasets for DataOps
+Protect replica.has_locked_block
+
+## Protection by primary and secondary names
+
+# Protect all MINIAOD (too important), Run2017 (too new) and DQMIO (too small to care)
+
+Protect dataset.name == /*/*Run2017*/*
+Protect dataset.name == /*/*/DQMIO
+Protect dataset.name == /*/*/MINIAOD*
+
+# Protect RECO
+
+Protect dataset.name == /MET/Run2016G-HighMET-PromptReco-v1/RECO
+Protect dataset.name == /MET/Run2016H-HighMET-PromptReco-v2/RECO
+Protect dataset.name == /MET/Run2016D-HighMET-PromptReco-v2/RECO
+Protect dataset.name == /MET/Run2016B-HighMET-PromptReco-v1/RECO
+Protect dataset.name == /MET/Run2016F-HighMET-PromptReco-v1/RECO
+Protect dataset.name == /MET/Run2016B-HighMET-PromptReco-v2/RECO
+Protect dataset.name == /MET/Run2016C-HighMET-PromptReco-v2/RECO
+Protect dataset.name == /MET/Run2016H-HighMET-PromptReco-v3/RECO
+Protect dataset.name == /MET/Run2016H-HighMET-PromptReco-v1/RECO
+Protect dataset.name == /MET/Run2016E-HighMET-PromptReco-v2/RECO
+Protect dataset.name == /L1TechBPTXQuiet/Run2015A-PromptReco-v1/RECO
+Protect dataset.name == /L1TechBPTXPlusOnly/Run2015A-PromptReco-v1/RECO
+Protect dataset.name == /L1TechBPTXMinusOnly/Run2015A-PromptReco-v1/RECO
+Protect dataset.name == /ZeroBias1/Run2015B-16Dec2015-v1/RECO
+Protect dataset.name == /ZeroBias2/Run2015B-16Dec2015-v1/RECO
+Protect dataset.name == /ZeroBias3/Run2015B-16Dec2015-v1/RECO
+Protect dataset.name == /ZeroBias4/Run2015B-16Dec2015-v1/RECO
+Protect dataset.name == /ZeroBias5/Run2015B-16Dec2015-v1/RECO
+Protect dataset.name == /ZeroBias6/Run2015B-16Dec2015-v1/RECO
+Protect dataset.name == /ZeroBias7/Run2015B-16Dec2015-v1/RECO
+Protect dataset.name == /ZeroBias8/Run2015B-16Dec2015-v1/RECO
+Protect dataset.name == /ZeroBias1/Run2015B-16Oct2015-v1/RECO
+Protect dataset.name == /ZeroBias2/Run2015B-16Oct2015-v1/RECO
+Protect dataset.name == /ZeroBias3/Run2015B-16Oct2015-v1/RECO
+Protect dataset.name == /ZeroBias4/Run2015B-16Oct2015-v1/RECO
+Protect dataset.name == /ZeroBias5/Run2015B-16Oct2015-v1/RECO
+Protect dataset.name == /ZeroBias6/Run2015B-16Oct2015-v1/RECO
+Protect dataset.name == /ZeroBias7/Run2015B-16Oct2015-v1/RECO
+Protect dataset.name == /ZeroBias8/Run2015B-16Oct2015-v1/RECO
+Protect dataset.name == /ZeroBias1/Run2015C_25ns-19Jan2017-v1/RECO
+Protect dataset.name == /ZeroBias2/Run2015C_25ns-19Jan2017-v1/RECO
+Protect dataset.name == /ZeroBias3/Run2015C_25ns-19Jan2017-v1/RECO
+Protect dataset.name == /ZeroBias4/Run2015C_25ns-19Jan2017-v1/RECO
+Protect dataset.name == /ZeroBias5/Run2015C_25ns-19Jan2017-v1/RECO
+Protect dataset.name == /ZeroBias6/Run2015C_25ns-19Jan2017-v1/RECO
+Protect dataset.name == /ZeroBias7/Run2015C_25ns-19Jan2017-v1/RECO
+Protect dataset.name == /ZeroBias8/Run2015C_25ns-19Jan2017-v1/RECO
+Protect dataset.name == /EmptyBX/Run2015C_25ns-16Dec2015-v1/RECO
+Protect dataset.name == /ZeroBias/Run2015D-16Dec2015-v1/RECO
+Protect dataset.name == /EmptyBX/Run2015D-16Dec2015-v1/RECO
+Protect dataset.name == /EmptyBX/Run2015E-PromptReco-v1/RECO
+Protect dataset.name == /HLTPhysics/Run2015E-PromptReco-v1/RECO
+Protect dataset.name == /L1MinimumBias/Run2015E-PromptReco-v1/RECO
+Protect dataset.name == /MinimumBias1/Run2015E-PromptReco-v1/RECO
+Protect dataset.name == /MinimumBias2/Run2015E-PromptReco-v1/RECO
+Protect dataset.name == /MinimumBias3/Run2015E-PromptReco-v1/RECO
+Protect dataset.name == /MinimumBias4/Run2015E-PromptReco-v1/RECO
+Protect dataset.name == /MinimumBias5/Run2015E-PromptReco-v1/RECO
+Protect dataset.name == /MinimumBias6/Run2015E-PromptReco-v1/RECO
+Protect dataset.name == /MinimumBias7/Run2015E-PromptReco-v1/RECO
+Protect dataset.name == /MinimumBias8/Run2015E-PromptReco-v1/RECO
+Protect dataset.name == /MinimumBias9/Run2015E-PromptReco-v1/RECO
+Protect dataset.name == /MinimumBias10/Run2015E-PromptReco-v1/RECO
+Protect dataset.name == /TOTEM_minBias/Run2015E-PromptReco-v1/RECO
+Protect dataset.name == /ZeroBias/Run2015E-PromptReco-v1/RECO
+Protect dataset.name == /TOTEM_zeroBias/Run2015E-PromptReco-v1/RECO
+Protect dataset.name == /ppForward/Run2015E-PromptReco-v1/RECO
+Protect dataset.name == /CastorJets/Run2015E-PromptReco-v1/RECO
+Protect dataset.name == /CastorJets/Run2015A-PromptReco-v1/RECO
+Protect dataset.name == /ZeroBias/Run2015A-27Jan2016-v1/RECO
+Protect dataset.name == /ZeroBias1/Run2015A-27Jan2016-v1/RECO
+Protect dataset.name == /ZeroBias2/Run2015A-27Jan2016-v1/RECO
+Protect dataset.name == /ZeroBias3/Run2015A-27Jan2016-v1/RECO
+Protect dataset.name == /ZeroBias4/Run2015A-27Jan2016-v1/RECO
+Protect dataset.name == /ZeroBias5/Run2015A-27Jan2016-v1/RECO
+Protect dataset.name == /ZeroBias6/Run2015A-27Jan2016-v1/RECO
+Protect dataset.name == /ZeroBias7/Run2015A-27Jan2016-v1/RECO
+Protect dataset.name == /ZeroBias8/Run2015A-27Jan2016-v1/RECO
+Protect dataset.name == /EmptyBX/Run2015A-27Jan2016-v1/RECO
+Protect dataset.name == /ZeroBias/Run2015A-PromptReco-v1/RECO
+Protect dataset.name == /TOTEM_romanPotsTTBB_0/Run2015D-PromptReco-v4/RECO
+Protect dataset.name == /TOTEM_romanPotsTTBB_1/Run2015D-PromptReco-v4/RECO
+Protect dataset.name == /TOTEM_romanPotsTTBB_2/Run2015D-PromptReco-v4/RECO
+Protect dataset.name == /TOTEM_romanPotsTTBB_3/Run2015D-PromptReco-v4/RECO
+Protect dataset.name == /TOTEM_romanPotsTTBB_4/Run2015D-PromptReco-v4/RECO
+Protect dataset.name == /TOTEM_romanPotsTTBB_5/Run2015D-PromptReco-v4/RECO
+Protect dataset.name == /TOTEM_romanPotsTTBB_6/Run2015D-PromptReco-v4/RECO
+Protect dataset.name == /TOTEM_romanPotsTTBB_7/Run2015D-PromptReco-v4/RECO
+Protect dataset.name == /TOTEM_minBias/Run2015D-PromptReco-v4/RECO
+Protect dataset.name == /ToTOTEM_DoubleJet32_0/Run2015D-PromptReco-v4/RECO
+Protect dataset.name == /ToTOTEM_DoubleJet32_1/Run2015D-PromptReco-v4/RECO
+Protect dataset.name == /ToTOTEM_DoubleJet32_2/Run2015D-PromptReco-v4/RECO
+Protect dataset.name == /ToTOTEM_DoubleJet32_3/Run2015D-PromptReco-v4/RECO
+Protect dataset.name == /ToTOTEM/Run2015D-PromptReco-v4/RECO
+Protect dataset.name == /L1MinimumBiasHF1/Run2015D-PromptReco-v4/RECO
+Protect dataset.name == /L1MinimumBiasHF2/Run2015D-PromptReco-v4/RECO
+Protect dataset.name == /L1MinimumBiasHF3/Run2015D-PromptReco-v4/RECO
+Protect dataset.name == /L1MinimumBiasHF4/Run2015D-PromptReco-v4/RECO
+Protect dataset.name == /L1MinimumBiasHF5/Run2015D-PromptReco-v4/RECO
+Protect dataset.name == /L1MinimumBiasHF6/Run2015D-PromptReco-v4/RECO
+Protect dataset.name == /L1MinimumBiasHF7/Run2015D-PromptReco-v4/RECO
+Protect dataset.name == /L1MinimumBiasHF8/Run2015D-PromptReco-v4/RECO
+Protect dataset.name == /HighMultiplicity/Run2015D-PromptReco-v4/RECO
+
+Dismiss dataset.name == /*/Run2014*/RECO
+Dismiss dataset.name == /*/Run2015*/RECO
+Dismiss dataset.name == /*/Run2016*/RECO
+
+# Dismiss RAW-RECO
+
+Dismiss dataset.name == /*/Run2016*LogError*PromptReco*/RAW-RECO
+
+# Dismiss RAWRECOSIMHLT
+
+Dismiss dataset.name == /*/*/RAWRECOSIMHLT 
+
+# Protect AODSIM
+
+
+Protect dataset.name == /BsToJpsiPhiV2_BFilter_TuneCUEP8M1_13TeV-pythia8-evtgen/RunIISpring15DR74-Asympt25ns_MCRUN2_74_V9_ext1-v1/AODSIM
+Protect dataset.name == /BsToJpsiPhi_BMuonFilter_TuneCUEP8M1_13TeV-pythia8-evtgen/RunIISpring15DR74-Asympt25ns_MCRUN2_74_V9_ext1-v1/AODSIM
+Protect dataset.name == /BdToJpsiKstarV2_BFilter_TuneCUEP8M1_13TeV-pythia8-evtgen/RunIISpring15DR74-Asympt25ns_MCRUN2_74_V9_ext1-v1/AODSIM
+Protect dataset.name == /BdToJpsiKstarV2_BMuonFilter_TuneCUEP8M1_13TeV-pythia8-evtgen/RunIISpring15DR74-Asympt25ns_MCRUN2_74_V9_ext1-v1/AODSIM
+Protect dataset.name == /BuToJpsiKV2_BFilter_TuneCUEP8M1_13TeV-pythia8-evtgen/RunIISpring15DR74-Asympt25ns_MCRUN2_74_V9_ext1-v1/AODSIM
+Protect dataset.name == /BuToJpsiKV2_BMuonFilter_TuneCUEP8M1_13TeV-pythia8-evtgen/RunIISpring15DR74-Asympt25ns_MCRUN2_74_V9_ext1-v1/AODSIM
+Protect dataset.name == /BsToJpsiPhiV2_BFilter_TuneCUEP8M1_13TeV-pythia8-evtgen/RunIISpring15DR74-Asympt25ns_MCRUN2_74_V9-v1/AODSIM
+Protect dataset.name == /BsToJpsiPhiV2_BFilter_TuneCUEP8M1_13TeV-pythia8-evtgen/RunIISpring15DR74-Asympt25ns_MCRUN2_74_V9_ext1-v1/AODSIM
+Protect dataset.name == /BsToJpsiPhiV2_BFilter_TuneCUEP8M1_13TeV-pythia8-evtgen/RunIISpring15DR74-Asympt50ns_MCRUN2_74_V9A-v1/AODSIM
+Protect dataset.name == /BsToJpsiPhi_BFilter_TuneCUEP8M1_13TeV-pythia8-evtgen/PhaseIFall16DR-FlatPU28to62HcalNZSRAW_81X_upgrade2017_realistic_v26-v1/AODSIM
+Protect dataset.name == /BsToJpsiPhi_BFilter_TuneCUEP8M1_13TeV-pythia8-evtgen/RunIISpring15DR74-Asympt25ns_MCRUN2_74_V9-v1/AODSIM
+Protect dataset.name == /BsToJpsiPhi_BMuonFilter_TuneCUEP8M1_13TeV-pythia8-evtgen/RunIISpring15DR74-Asympt25nsRaw_MCRUN2_74_V9-v1/AODSIM
+Protect dataset.name == /BsToJpsiPhi_BMuonFilter_TuneCUEP8M1_13TeV-pythia8-evtgen/RunIISpring15DR74-Asympt25ns_MCRUN2_74_V9_ext1-v1/AODSIM
+Protect dataset.name == /BsToJpsiPhi_BMuonFilter_TuneCUEP8M1_13TeV-pythia8-evtgen/RunIISpring15DR74-Asympt50nsRaw_MCRUN2_74_V9A-v1/AODSIM
+Protect dataset.name == /MSSM-higgsino_genHT-160_genMET-80_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16FSPremix-80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/AODSIM
+Protect dataset.name == /SMS-T5bbbbZg_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16FSPremix-80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/AODSIM
+Protect dataset.name == /SMS-T5qqqqHg_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16FSPremix-80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/AODSIM
+Protect dataset.name == /SMS-T5ttttZg_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16FSPremix-80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/AODSIM
+Protect dataset.name == /SMS-TChipmSlepSnu_mC1_825_1200_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISpring16FSPremix-80X_mcRun2_asymptotic_v12-v1/AODSIM
+Protect dataset.name == /SMS-TChiStauStau_mLSP-325to500_x0p5_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISpring16FSPremix-80X_mcRun2_asymptotic_v12-v1/AODSIM
+Protect dataset.name == /SMS-TChiStauStau_x0p05_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISpring16FSPremix-80X_mcRun2_asymptotic_v12-v1/AODSIM
+Protect dataset.name == /SMS-TChiStauStau_x0p95_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISpring16FSPremix-80X_mcRun2_asymptotic_v12-v1/AODSIM
+Protect dataset.name == /SMS-TChiWZ_ZToLL_mZMin-0p1_mLSP300to350_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16FSPremix-80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/AODSIM
+Protect dataset.name == /SMS-TSlepSlep_mSlep500To1000_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16FSPremix-80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/AODSIM
+Protect dataset.name == /TChiWZ_genHT-160_genMET-80_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16FSPremix-80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/AODSIM
+Protect dataset.name == /VBF-C1N2_WZ_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16FSPremix-80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/AODSIM
+
+Dismiss dataset.name == /*/RunII*FSPremix*/AODSIM
+
+# Protect GEN-SIM-RAW
+
+
+Protect dataset.name == /BsToJpsiPhi_BMuonFilter_TuneCUEP8M1_13TeV-pythia8-evtgen/RunIISpring15DR74-Asympt25nsRaw_MCRUN2_74_V9-v1/GEN-SIM-RAW
+Protect dataset.name == /BsToJpsiPhi_BMuonFilter_TuneCUEP8M1_13TeV-pythia8-evtgen/RunIISpring15DR74-Asympt50nsRaw_MCRUN2_74_V9A-v1/GEN-SIM-RAW
+Protect dataset.name == /BsToJpsiPhi_BFilter_TuneCUEP8M1_13TeV-pythia8-evtgen/PhaseIFall16DR-FlatPU28to62HcalNZSRAW_81X_upgrade2017_realistic_v26-v1/GEN-SIM-RAW
+Protect dataset.name == /BdToKstarMuMu_BFilter_TuneCUEP8M1_13TeV-pythia8-evtgen/RunIISpring16DR80-PU2016_Classic_withHLT_80X_mcRun2_asymptotic_v14-v1/GEN-SIM-RAW
+Protect dataset.name == /MinBias_TuneCUETP8M1_13TeV-pythia8/RunIISpring15DR74-NoPURawReco_castor_MCRUN2_74_V8B-v1/GEN-SIM-RAW
+Protect dataset.name == /MinBias_TuneMBR_13TeV-pythia8/RunIISpring15DR74-NoPURawReco_castor_MCRUN2_74_V8B-v1/GEN-SIM-RAW
+Protect dataset.name == /MinBias_TuneMBR_epsilon080-pythia8/RunIISpring15DR74-NoPURawReco_castor_MCRUN2_74_V8B-v1/GEN-SIM-RAW
+Protect dataset.name == /ReggeGribovPartonMC_13TeV-EPOS/RunIISpring15DR74-NoPURawReco_castor_MCRUN2_74_V8B-v1/GEN-SIM-RAW
+Protect dataset.name == /ReggeGribovPartonMC_13TeV-QGSJetII/RunIISpring15DR74-NoPURawReco_castor_MCRUN2_74_V8B-v1/GEN-SIM-RAW
+Protect dataset.name == /BdToKstarMuMu_BFilter_TuneCUEP8M1_13TeV-pythia8-evtgen/RunIISpring16DR80-PU2016_Classic_withHLT_80X_mcRun2_asymptotic_v14-v2/GEN-SIM-RAW
+Protect dataset.name == /DYToLL_M_1_TuneCUETP8M1_13TeV_pythia8/RunIISpring16DR80-FlatPU20to70HcalNZSRAW_withHLT_80X_mcRun2_asymptotic_v14_ext1-v1/GEN-SIM-RAW
+Protect dataset.name == /DYToLL_M_1_TuneCUETP8M1_13TeV_pythia8/RunIISpring16DR80-FlatPU8to37HcalNZSRAW_withHLT_80X_mcRun2_asymptotic_v14_ext1-v1/GEN-SIM-RAW
+Protect dataset.name == /GluGluHToGG_M-125_13TeV_powheg_pythia8/RunIISpring16DR80-FlatPU20to70HcalNZSRAW_withHLT_80X_mcRun2_asymptotic_v14-v1/GEN-SIM-RAW
+Protect dataset.name == /GluGluHToTauTau_M125_13TeV_powheg_pythia8/RunIISpring16DR80-FlatPU20to70HcalNZSRAW_withHLT_80X_mcRun2_asymptotic_v14-v1/GEN-SIM-RAW
+Protect dataset.name == /JPsiToMuMu_Pt20to100-pythia8-gun/RunIISpring16DR80-PU2016_Classic_withHLT_80X_mcRun2_asymptotic_v14-v1/GEN-SIM-RAW
+Protect dataset.name == /JPsiToMuMu_Pt20to120_EtaPhiRestricted-pythia8-gun/RunIISpring16DR80-NoPURAW_NZS_withHLT_80X_mcRun2_asymptotic_v14-v1/GEN-SIM-RAW
+Protect dataset.name == /Muminus_Pt1000-gun/RunIISpring16DR80-PU2016_Classic_withHLT_80X_mcRun2_asymptotic_v14-v1/GEN-SIM-RAW
+Protect dataset.name == /Muminus_Pt100-gun/RunIISpring16DR80-PU2016_Classic_withHLT_80X_mcRun2_asymptotic_v14-v1/GEN-SIM-RAW
+Protect dataset.name == /Muminus_Pt10-gun/RunIISpring16DR80-PU2016_Classic_withHLT_80X_mcRun2_asymptotic_v14-v1/GEN-SIM-RAW
+Protect dataset.name == /Muplusandminus_Pt3to10-gun/RunIISpring16DR80-PU2016_Classic_withHLT_80X_mcRun2_asymptotic_v14-v1/GEN-SIM-RAW
+Protect dataset.name == /Muplus_Pt1000-gun/RunIISpring16DR80-PU2016_Classic_withHLT_80X_mcRun2_asymptotic_v14-v1/GEN-SIM-RAW
+Protect dataset.name == /Muplus_Pt100-gun/RunIISpring16DR80-PU2016_Classic_withHLT_80X_mcRun2_asymptotic_v14-v1/GEN-SIM-RAW
+Protect dataset.name == /Muplus_Pt10-gun/RunIISpring16DR80-PU2016_Classic_withHLT_80X_mcRun2_asymptotic_v14-v1/GEN-SIM-RAW
+Protect dataset.name == /QCD_Pt-120to170_EMEnriched_TuneCUETP8M1_13TeV_pythia8/RunIISpring16DR80-FlatPU8to37HcalNZSRAW_withHLT_80X_mcRun2_asymptotic_v14-v1/GEN-SIM-RAW
+Protect dataset.name == /QCD_Pt-120to170_MuEnrichedPt5_TuneCUETP8M1_13TeV_pythia8/RunIISpring16DR80-FlatPU8to37HcalNZSRAW_withHLT_80X_mcRun2_asymptotic_v14-v1/GEN-SIM-RAW
+Protect dataset.name == /QCD_Pt_120to170_TuneCUETP8M1_13TeV_pythia8/RunIISpring16DR80-FlatPU8to37HcalNZSRAW_withHLT_80X_mcRun2_asymptotic_v14-v1/GEN-SIM-RAW
+Protect dataset.name == /QCD_Pt-15to20_EMEnriched_TuneCUETP8M1_13TeV_pythia8/RunIISpring16DR80-FlatPU8to37HcalNZSRAW_withHLT_80X_mcRun2_asymptotic_v14_ext1-v1/GEN-SIM-RAW
+Protect dataset.name == /QCD_Pt-15to20_EMEnriched_TuneCUETP8M1_13TeV_pythia8/RunIISpring16DR80-FlatPU8to37HcalNZSRAW_withHLT_80X_mcRun2_asymptotic_v14_ext1-v3/GEN-SIM-RAW
+Protect dataset.name == /QCD_Pt-15to20_EMEnriched_TuneCUETP8M1_13TeV_pythia8/RunIISpring16DR80-FlatPU8to37HcalNZSRAW_withHLT_80X_mcRun2_asymptotic_v14-v1/GEN-SIM-RAW
+Protect dataset.name == /QCD_Pt-15to20_MuEnrichedPt5_TuneCUETP8M1_13TeV_pythia8/RunIISpring16DR80-FlatPU8to37HcalNZSRAW_withHLT_80X_mcRun2_asymptotic_v14_ext1-v1/GEN-SIM-RAW
+Protect dataset.name == /QCD_Pt-15to20_MuEnrichedPt5_TuneCUETP8M1_13TeV_pythia8/RunIISpring16DR80-FlatPU8to37HcalNZSRAW_withHLT_80X_mcRun2_asymptotic_v14-v1/GEN-SIM-RAW
+Protect dataset.name == /QCD_Pt-15to3000_TuneCUETP8M1_Flat_13TeV_pythia8/RunIISpring16DR80-FlatPU20to70HcalNZSRAW_withHLT_80X_mcRun2_asymptotic_v14-v1/GEN-SIM-RAW
+Protect dataset.name == /QCD_Pt-15to3000_TuneCUETP8M1_Flat_13TeV_pythia8/RunIISpring16DR80-FlatPU8to37HcalNZSRAW_withHLT_80X_mcRun2_asymptotic_v14-v1/GEN-SIM-RAW
+Protect dataset.name == /QCD_Pt-15to3000_TuneCUETP8M1_Flat_13TeV_pythia8/RunIISpring16DR80-NoPURAW_NZS_withHLT_80X_mcRun2_asymptotic_v14-v1/GEN-SIM-RAW
+Protect dataset.name == /QCD_Pt_15to30_TuneCUETP8M1_13TeV_pythia8/RunIISpring16DR80-FlatPU8to37HcalNZSRAW_withHLT_80X_mcRun2_asymptotic_v14-v1/GEN-SIM-RAW
+Protect dataset.name == /QCD_Pt-15to7000_TuneCUETP8M1_Flat_13TeV_pythia8/RunIISpring16DR80-NoPU_RECO_NZS_80X_mcRun2_asymptotic_2016_v3-v1/GEN-SIM-RAW
+Protect dataset.name == /QCD_Pt-15to7000_TuneCUETP8M1_Flat_13TeV_pythia8/RunIISpring16DR80-PUSpring16_RECO_NZS_80X_mcRun2_asymptotic_2016_v3-v1/GEN-SIM-RAW
+Protect dataset.name == /QCD_Pt_170to300_TuneCUETP8M1_13TeV_pythia8/RunIISpring16DR80-FlatPU8to37HcalNZSRAW_withHLT_80X_mcRun2_asymptotic_v14-v1/GEN-SIM-RAW
+Protect dataset.name == /QCD_Pt-20to30_EMEnriched_TuneCUETP8M1_13TeV_pythia8/RunIISpring16DR80-FlatPU8to37HcalNZSRAW_withHLT_80X_mcRun2_asymptotic_v14-v1/GEN-SIM-RAW
+Protect dataset.name == /QCD_Pt-20to30_MuEnrichedPt5_TuneCUETP8M1_13TeV_pythia8/RunIISpring16DR80-FlatPU8to37HcalNZSRAW_withHLT_80X_mcRun2_asymptotic_v14-v1/GEN-SIM-RAW
+Protect dataset.name == /QCD_Pt_300to470_TuneCUETP8M1_13TeV_pythia8/RunIISpring16DR80-FlatPU8to37HcalNZSRAW_withHLT_80X_mcRun2_asymptotic_v14-v1/GEN-SIM-RAW
+Protect dataset.name == /QCD_Pt-30to50_EMEnriched_TuneCUETP8M1_13TeV_pythia8/RunIISpring16DR80-FlatPU8to37aphMLM-pythia8/RunIISpring16DR80-FlatPU8to37HcalNZSRAW_withHLT_80X_mcRun2_asymptotic_v14-v1/GEN-SIM-RAW
+Protect dataset.name == /QCD_Pt-30to50_EMEnriched_TuneCUETP8M1_13TeV_pythia8/RunIISpring16DR80-FlatPU8to37HcalNZSRAW_withHLT_80X_mcRun2_asymptotic_v14-v1/GEN-SIM-RAW
+Protect dataset.name == /QCD_Pt-30to50_EMEnriched_TuneCUETP8M1_13TeV_pythia8/RunIISpring16DR80-FlatPU8to37HcalNZSRAW_withHLT_80X_mcRun2_asymptotic_v14_ext1-v1/GEN-SIM-RAW
+Protect dataset.name == /QCD_Pt-30to50_MuEnrichedPt5_TuneCUETP8M1_13TeV_pythia8/RunIISpring16DR80-FlatPU8to37HcalNZSRAW_withHLT_80X_mcRun2_asymptotic_v14-v1/GEN-SIM-RAW
+Protect dataset.name == /QCD_Pt_30to50_TuneCUETP8M1_13TeV_pythia8/RunIISpring16DR80-FlatPU8to37HcalNZSRAW_withHLT_80X_mcRun2_asymptotic_v14_ext1-v1/GEN-SIM-RAW
+Protect dataset.name == /QCD_Pt_30to50_TuneCUETP8M1_13TeV_pythia8/RunIISpring16DR80-FlatPU8to37HcalNZSRAW_withHLT_80X_mcRun2_asymptotic_v14-v1/GEN-SIM-RAW
+Protect dataset.name == /QCD_Pt_470to600_TuneCUETP8M1_13TeV_pythia8/RunIISpring16DR80-FlatPU8to37HcalNZSRAW_withHLT_80X_mcRun2_asymptotic_v14-v1/GEN-SIM-RAW
+Protect dataset.name == /QCD_Pt-50to80_EMEnriched_TuneCUETP8M1_13TeV_pythia8/RunIISpring16DR80-FlatPU8to37HcalNZSRAW_withHLT_80X_mcRun2_asymptotic_v14-v1/GEN-SIM-RAW
+Protect dataset.name == /QCD_Pt-50to80_MuEnrichedPt5_TuneCUETP8M1_13TeV_pythia8/RunIISpring16DR80-FlatPU8to37HcalNZSRAW_withHLT_80X_mcRun2_asymptotic_v14-v1/GEN-SIM-RAW
+Protect dataset.name == /QCD_Pt_50to80_TuneCUETP8M1_13TeV_pythia8/RunIISpring16DR80-FlatPU8to37HcalNZSRAW_withHLT_80X_mcRun2_asymptotic_v14_ext1-v1/GEN-SIM-RAW
+Protect dataset.name == /QCD_Pt_50to80_TuneCUETP8M1_13TeV_pythia8/RunIISpring16DR80-FlatPU8to37HcalNZSRAW_withHLT_80X_mcRun2_asymptotic_v14-v1/GEN-SIM-RAW
+Protect dataset.name == /QCD_Pt-80to120_EMEnriched_TuneCUETP8M1_13TeV_pythia8/RunIISpring16DR80-FlatPU8to37HcalNZSRAW_withHLT_80X_mcRun2_asymptotic_v14-v1/GEN-SIM-RAW
+Protect dataset.name == /QCD_Pt-80to120_MuEnrichedPt5_TuneCUETP8M1_13TeV_pythia8/RunIISpring16DR80-FlatPU8to37HcalNZSRAW_withHLT_80X_mcRun2_asymptotic_v14-v1/GEN-SIM-RAW
+Protect dataset.name == /QCD_Pt_80to120_TuneCUETP8M1_13TeV_pythia8/RunIISpring16DR80-FlatPU8to37HcalNZSRAW_withHLT_80X_mcRun2_asymptotic_v14_ext1-v1/GEN-SIM-RAW
+Protect dataset.name == /QCD_Pt_80to120_TuneCUETP8M1_13TeV_pythia8/RunIISpring16DR80-FlatPU8to37HcalNZSRAW_withHLT_80X_mcRun2_asymptotic_v14-v1/GEN-SIM-RAW
+Protect dataset.name == /SingleMuMinusFlatPt3To70_EtaPhiRestricted/RunIISpring16DR80-NoPURAW_NZS_withHLT_80X_mcRun2_asymptotic_v14-v1/GEN-SIM-RAW
+Protect dataset.name == /SingleMu_Pt1To1000_FlatRandomOneOverPt/RunIISpring16DR80-NoPURAW_NZS_withHLT_80X_mcRun2_asymptotic_v14-v1/GEN-SIM-RAW
+Protect dataset.name == /SingleNeutrino/RunIISpring16DR80-FlatPU20to70HcalNZSRAW_withHLT_80X_mcRun2_asymptotic_v14-v1/GEN-SIM-RAW
+Protect dataset.name == /SingleNeutrino/RunIISpring16DR80-FlatPU20to70HcalNZSRAW_withHLT_80X_mcRun2_asymptotic_v14-v2/GEN-SIM-RAW
+Protect dataset.name == /SingleNeutrino/RunIISpring16DR80-PUSpring16_RECO_NZS_80X_mcRun2_asymptotic_2016_v3-v1/GEN-SIM-RAW
+Protect dataset.name == /SinglePi0_FlatPt-1To15/RunIISpring16DR80-FlatPU0to50RAW_withHLT_80X_mcRun2_asymptotic_v14-v2/GEN-SIM-RAW
+Protect dataset.name == /SinglePiMinus_E1to1000_Eta5p2_13TeV_FlatRandom/RunIISpring16DR80-NoPURAW_NZS_withHLT_80X_mcRun2_asymptotic_v14-v1/GEN-SIM-RAW
+Protect dataset.name == /SinglePion_PT0to200/RunIISpring16DR80-NoPURAW_NZS_withHLT_80X_mcRun2_asymptotic_v14-v1/GEN-SIM-RAW
+Protect dataset.name == /SinglePion_PT200to500/RunIISpring16DR80-NoPURAW_NZS_withHLT_80X_mcRun2_asymptotic_v14-v1/GEN-SIM-RAW
+Protect dataset.name == /TT_TuneCUETP8M1_13TeV-powheg-pythia8/RunIISpring16DR80-FlatPU20to70HcalNZSRAW_withHLT_80X_mcRun2_asymptotic_v14_ext3-v1/GEN-SIM-RAW
+Protect dataset.name == /VBF_HToInvisible_M110_13TeV_powheg_pythia8/RunIISpring16DR80-FlatPU20to70HcalNZSRAW_withHLT_80X_mcRun2_asymptotic_v14-v1/GEN-SIM-RAW
+Protect dataset.name == /VBF_HToInvisible_M110_13TeV_powheg_pythia8/RunIISpring16DR80-NoPURAW_NZS_withHLT_80X_mcRun2_asymptotic_v14-v1/GEN-SIM-RAW
+Protect dataset.name == /VBF_HToInvisible_M125_13TeV_powheg_pythia8/RunIISpring16DR80-FlatPU20to70HcalNZSRAW_withHLT_80X_mcRun2_asymptotic_v14-v1/GEN-SIM-RAW
+Protect dataset.name == /VBF_HToInvisible_M125_13TeV_powheg_pythia8/RunIISpring16DR80-NoPURAW_NZS_withHLT_80X_mcRun2_asymptotic_v14-v1/GEN-SIM-RAW
+Protect dataset.name == /VBF_HToInvisible_M150_13TeV_powheg_pythia8/RunIISpring16DR80-FlatPU20to70HcalNZSRAW_withHLT_80X_mcRun2_asymptotic_v14-v1/GEN-SIM-RAW
+Protect dataset.name == /VBF_HToInvisible_M150_13TeV_powheg_pythia8/RunIISpring16DR80-NoPURAW_NZS_withHLT_80X_mcRun2_asymptotic_v14-v1/GEN-SIM-RAW
+Protect dataset.name == /VBFHToTauTau_M125_13TeV_powheg_pythia8/RunIISpring16DR80-FlatPU20to70HcalNZSRAW_withHLT_80X_mcRun2_asymptotic_v14-v1/GEN-SIM-RAW
+Protect dataset.name == /WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISpring16DR80-FlatPU20to70HcalNZSRAW_withHLT_80X_mcRun2_asymptotic_v14-v1/GEN-SIM-RAW
+Protect dataset.name == /WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISpring16DR80-FlatPU8to37HcalNZSRAW_withHLT_80X_mcRun2_asymptotic_v14-v1/GEN-SIM-RAW
+Protect dataset.name == /ZNuNuGJets_MonoPhoton_PtG-130_TuneCUETP8M1_13TeV-madgraph/RunIISpring16DR80-PUSpring16RAW_80X_mcRun2_asymptotic_2016_v3-v1/GEN-SIM-RAW
+Protect dataset.name == /ZprimeToMuMu_M-5000_TuneCUETP8M1_13TeV-pythia8/RunIISpring16DR80-PU2016_Classic_withHLT_80X_mcRun2_asymptotic_v14-v1/GEN-SIM-RAW
+
+Dismiss dataset.name == /*/RunIISpring16DR80*/GEN-SIM-RAW
+
+# Protect GEN-SIM
+
+Protect dataset.name == /BsToJpsiPhi_BFilter_TuneCUEP8M1_13TeV-pythia8-evtgen/PhaseIFall16GS-81X_upgrade2017_realistic_v26-v1/GEN-SIM
+
+# Protect GEN-SIM-RECODEBUG
+
+Protect dataset.name == /MinBias_TuneCUETP8M1_13TeV-pythia8/RunIISpring15DR74-PU1p3RealisticRecodebug_741_p1_mcRun2_Realistic_50ns_v0-v1/GEN-SIM-RECODEBUG
+Protect dataset.name == /MinBias_TuneCUETHS1_13TeV-herwigpp/RunIISpring15DR74-PU1p3RealisticRecodebug_castor_741_p1_mcRun2_Realistic_50ns_v0-v1/GEN-SIM-RECODEBUG
+Protect dataset.name == /ReggeGribovPartonMC_13TeV-EPOS/RunIISpring15DR74-NoPURealisticRecodebug_castor_741_p1_mcRun2_Realistic_50ns_v0-v1/GEN-SIM-RECODEBUG
+Protect dataset.name == /MinBias_TuneCUETP8M1_13TeV-pythia8/RunIISpring15DR74-NoPURealisticRecodebug_741_p1_mcRun2_Realistic_50ns_v0-v1/GEN-SIM-RECODEBUG
+Protect dataset.name == /MinBias_TuneCUETHS1_13TeV-herwigpp/RunIISpring15DR74-PU1p3RealisticRecodebug_castor_741_p1_mcRun2_Realistic_50ns_v0-v2/GEN-SIM-RECODEBUG
+Protect dataset.name == /MinBias_TuneCUETP8M1_13TeV-pythia8/RunIISpring15DR74-PU1p3RealisticRecodebug_741_p1_mcRun2_Realistic_50ns_v0-v3/GEN-SIM-RECODEBUG
+Protect dataset.name == /ReggeGribovPartonMC_13TeV-EPOS/RunIISpring15DR74-PU1p3RealisticRecodebug_castor_741_p1_mcRun2_Realistic_50ns_v0-v4/GEN-SIM-RECODEBUG
+Protect dataset.name == /MinBias_TuneCUETP8M1_13TeV-pythia8/RunIISpring15DR74-NoPURealisticRecodebug_741_p1_mcRun2_Realistic_50ns_v0-v2/GEN-SIM-RECODEBUG
+Protect dataset.name == /MinBias_TuneCUETHS1_13TeV-herwigpp/RunIISpring15DR74-NoPURealisticRecodebug_castor_741_p1_mcRun2_Realistic_50ns_v0-v1/GEN-SIM-RECODEBUG
+Protect dataset.name == /MinBias_TuneCUETP8M1_13TeV-pythia8/RunIISpring15DR74-PU1p3RealisticRecodebug_741_p1_mcRun2_Realistic_50ns_v0-v2/GEN-SIM-RECODEBUG
+
+Dismiss dataset.name == /*/*/GEN-SIM-RAW-HLTDEBUG-RECODEBUG
+
+# Protect GEN-SIM-RECO
+
+Protect dataset.name == /MinBias_TuneEE5C_13TeV-herwigpp/RunIISpring15DR74-NoPU0TRawReco_magnetOff_MCRUN2_740TV0-v1/GEN-SIM-RECO
+Protect dataset.name == /MinBias_TuneMBR_13TeV-pythia8/RunIISpring15DR74-NoPU0TRawReco_magnetOff_MCRUN2_740TV0-v1/GEN-SIM-RECO
+Protect dataset.name == /MinBias_TuneMonash13_13TeV-pythia8/RunIISpring15DR74-NoPU0TRawReco_magnetOff_MCRUN2_740TV0-v1/GEN-SIM-RECO
+Protect dataset.name == /MinBias_TuneZ2star_13TeV-pythia6/RunIISpring15DR74-NoPU0TRawReco_magnetOff_MCRUN2_740TV0-v1/GEN-SIM-RECO
+Protect dataset.name == /ReggeGribovPartonMC_13TeV-EPOS/RunIISpring15DR74-NoPU0TRawReco_magnetOff_MCRUN2_740TV0-v1/GEN-SIM-RECO
+Protect dataset.name == /ReggeGribovPartonMC_13TeV-QGSJetII/RunIISpring15DR74-NoPU0TRawReco_magnetOff_MCRUN2_740TV0-v1/GEN-SIM-RECO
+Protect dataset.name == /MinBias_TuneCUETP8M1_13TeV-pythia8/RunIISpring15DR74-NoPURawReco_castor_MCRUN2_74_V8B-v1/GEN-SIM-RECO
+Protect dataset.name == /MinBias_TuneEE5C_13TeV-herwigpp/RunIISpring15DR74-NoPURawReco_castor_MCRUN2_74_V8B-v1/GEN-SIM-RECO
+Protect dataset.name == /MinBias_TuneMBR_13TeV-pythia8/RunIISpring15DR74-NoPURawReco_castor_MCRUN2_74_V8B-v1/GEN-SIM-RECO
+Protect dataset.name == /MinBias_TuneZ2star_13TeV-pythia6/RunIISpring15DR74-NoPURawReco_castor_MCRUN2_74_V8B-v1/GEN-SIM-RECO
+Protect dataset.name == /ReggeGribovPartonMC_13TeV-EPOS/RunIISpring15DR74-NoPURawReco_castor_MCRUN2_74_V8B-v1/GEN-SIM-RECO
+Protect dataset.name == /ReggeGribovPartonMC_13TeV-QGSJetII/RunIISpring15DR74-NoPURawReco_castor_MCRUN2_74_V8B-v1/GEN-SIM-RECO
+
+Dismiss dataset.name == /*/*/GEN-SIM-RAW-HLTDEBUG-RECO
+
+# Protect ALCARECO
+
+Protect dataset.name == /SingleMuon/Run2016G-MuAlCalIsolatedMu-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBiasIsolatedBunches4/Run2017A-SiStripCalZeroBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBiasIsolatedBunches5/Run2017A-SiStripCalZeroBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBias8/Run2017A-SiStripCalMinBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBias10/Run2017A-SiStripCalZeroBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBias4/Run2017A-SiStripCalMinBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBias/Run2017A-SiStripCalZeroBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBiasIsolatedBunches10/Run2017A-SiStripCalZeroBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBias6/Run2017A-SiStripCalZeroBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBiasIsolatedBunches7/Run2017A-SiStripCalMinBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBias2/Run2017A-SiStripCalZeroBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBiasIsolatedBunches2/Run2017A-SiStripCalMinBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBiasIsolatedBunches8/Run2017A-SiStripCalMinBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /Commissioning4/Run2017A-SiStripCalMinBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /MinimumBias/Run2017A-SiStripCalZeroBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBiasIsolatedBunches3/Run2017A-SiStripCalZeroBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBiasIsolatedBunches6/Run2017A-SiStripCalMinBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBiasIsolatedBunches1/Run2017A-SiStripCalZeroBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBias3/Run2017A-SiStripCalMinBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBias7/Run2017A-SiStripCalMinBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /Commissioning/Run2017A-SiStripCalMinBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /Commissioning2/Run2017A-SiStripCalMinBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBiasIsolatedBunches9/Run2017A-SiStripCalZeroBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBias8/Run2017A-SiStripCalZeroBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBiasIsolatedBunches2/Run2017A-SiStripCalZeroBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBias5/Run2017A-SiStripCalMinBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /Commissioning3/Run2017A-SiStripCalMinBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBias6/Run2017A-SiStripCalMinBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBias7/Run2017A-SiStripCalZeroBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBias/Run2017A-SiStripCalMinBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBias1/Run2017A-SiStripCalZeroBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /MinimumBias/Run2017A-SiStripCalMinBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBiasIsolatedBunches8/Run2017A-SiStripCalZeroBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBiasIsolatedBunches6/Run2017A-SiStripCalZeroBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBias9/Run2017A-SiStripCalMinBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBias3/Run2017A-SiStripCalZeroBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBias5/Run2017A-SiStripCalZeroBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBiasIsolatedBunches5/Run2017A-SiStripCalMinBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBiasIsolatedBunches7/Run2017A-SiStripCalZeroBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBias4/Run2017A-SiStripCalZeroBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBias1/Run2017A-SiStripCalMinBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /Commissioning1/Run2017A-SiStripCalMinBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBiasIsolatedBunches9/Run2017A-SiStripCalMinBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBias9/Run2017A-SiStripCalZeroBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBias10/Run2017A-SiStripCalMinBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBias2/Run2017A-SiStripCalMinBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBiasIsolatedBunches10/Run2017A-SiStripCalMinBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBiasIsolatedBunches1/Run2017A-TkAlMinBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /MinimumBias/Run2017A-TkAlMinBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /HLTPhysics/Run2017A-TkAlMinBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBiasIsolatedBunches6/Run2017A-TkAlMinBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /Commissioning/Run2017A-TkAlMinBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBias3/Run2017A-TkAlMinBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBiasIsolatedBunches10/Run2017A-TkAlMinBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /Commissioning2/Run2017A-TkAlMinBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBiasIsolatedBunches3/Run2017A-TkAlMinBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBiasIsolatedBunches5/Run2017A-TkAlMinBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBias5/Run2017A-TkAlMinBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /Commissioning3/Run2017A-TkAlMinBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBias1/Run2017A-TkAlMinBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBias2/Run2017A-TkAlMinBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBias10/Run2017A-TkAlMinBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBiasIsolatedBunches7/Run2017A-TkAlMinBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBiasIsolatedBunches4/Run2017A-TkAlMinBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBias4/Run2017A-TkAlMinBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBias7/Run2017A-TkAlMinBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /Cosmics/Run2017A-TkAlCosmics0T-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBiasIsolatedBunches2/Run2017A-TkAlMinBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBiasIsolatedBunches9/Run2017A-TkAlMinBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBias8/Run2017A-TkAlMinBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBias6/Run2017A-TkAlMinBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBias/Run2017A-TkAlMinBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /Commissioning4/Run2017A-TkAlMinBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBias9/Run2017A-TkAlMinBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /ZeroBiasIsolatedBunches8/Run2017A-TkAlMinBias-PromptReco-v1/ALCARECO
+Protect dataset.name == /Commissioning1/Run2017A-TkAlMinBias-PromptReco-v1/ALCARECO
+
+Dismiss dataset.name == /*/Run201*-Prompt*/ALCARECO
+
+# Others
+
+Dismiss dataset.name == /*/PhaseIFall16DR-FlatPU28to62HcalNZSRAW_81X_upgrade2017_realistic_v26-v1/*
+Dismiss dataset.name == /*/PhaseIFall16DR-FlatPU28to62HcalNZSRAW_81X_upgrade2017_realistic_v26-v2/*
+Dismiss dataset.name == /*/PhaseIFall16GS-81X_upgrade2017_realistic_v26-v1/*
+Dismiss dataset.name == /*/RunIISpring15DR74-*/*
+
+## All else are protected
+
+Protect
+Order none
