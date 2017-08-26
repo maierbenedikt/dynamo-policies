@@ -5,9 +5,9 @@ On site.name in [T0_CERN_CH_Disk T1_*_Disk T2_*]
 When site.occupancy > 0.9
 Until site.occupancy < 0.85
 
+### Replica protection / deletion policies
 Protect replica.has_locked_block
 
-### Replica protection / deletion policies
 Delete dataset.status == DEPRECATED and dataset.last_update older_than 1 week ago
 Delete dataset.status == INVALID and dataset.last_update older_than 1 week ago
 
