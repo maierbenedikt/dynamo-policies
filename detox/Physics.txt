@@ -23,7 +23,7 @@ Protect replica.owners contains DataOps and dataset.on_tape == NONE
 
 DeleteOwner(DataOps) replica.owners contains DataOps
 
-Dismiss dataset.name == /*/*/RAW and dataset.name != /*Scouting*/*/RAW and dataset.last_update older_than 60 days ago
+Dismiss dataset.name == /*/*/RAW and dataset.last_update older_than 60 days ago
 Dismiss dataset.name == /*/*LogError*/RAW-RECO and dataset.last_update older_than 90 days ago
 Dismiss dataset.name == /*/*/RECO and dataset.name != /*/Run*-*-*-v*/RECO and dataset.last_update older_than 90 days ago
 
