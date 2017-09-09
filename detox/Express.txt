@@ -1,0 +1,16 @@
+### Target sites
+On site.name in [T2_CH_CERN]
+
+### Deletion trigger
+When always
+Until never
+
+Protect replica.has_locked_block
+
+ProtectBlock blockreplica.last_update newer_than 60 days ago
+
+# Default decision
+Delete
+
+### Candidate ordering
+Order none
