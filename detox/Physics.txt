@@ -19,22 +19,18 @@ Protect dataset.name == /*/*/RAW and dataset.on_tape != FULL
 
 Protect dataset.name == /*/*/RECO and dataset.num_full_disk_copy == 0 and dataset.last_update newer_than 90 days ago
 
-#ProtectBlock dataset.on_tape == NONE and blockreplica.owner == DataOps
-Protect dataset.on_tape == NONE and blockreplica.owner == DataOps
+ProtectBlock dataset.on_tape == NONE and blockreplica.owner == DataOps
 
 DeleteBlock blockreplica.owner == DataOps
 
-#ProtectBlock dataset.name == /*/*/RAW and blockreplica.last_update newer_than 60 days ago
-#Dismiss dataset.name == /*/*/RAW and dataset.name != /*Scouting*/*/RAW
-Dismiss dataset.name == /*/*/RAW and dataset.name != /*Scouting*/*/RAW and dataset.last_update older_than 60 days ago
+ProtectBlock dataset.name == /*/*/RAW and blockreplica.last_update newer_than 60 days ago
+Dismiss dataset.name == /*/*/RAW and dataset.name != /*Scouting*/*/RAW
 
-#ProtectBlock dataset.name == /*/*/RECO and blockreplica.last_update newer_than 90 days ago
-#Dismiss dataset.name == /*/*/RECO and dataset.name != /*/Run*-*-*-v*/RECO
-Dismiss dataset.name == /*/*/RECO and dataset.name != /*/Run*-*-*-v*/RECO and dataset.last_update older_than 90 days ago
+ProtectBlock dataset.name == /*/*/RECO and blockreplica.last_update newer_than 90 days ago
+Dismiss dataset.name == /*/*/RECO and dataset.name != /*/Run*-*-*-v*/RECO
 
-#ProtectBlock dataset.name == /*/*LogError*/RAW-RECO and blockreplica.last_update newer_than 90 days ago
-#Dismiss dataset.name == /*/*LogError*/RAW-RECO
-Dismiss dataset.name == /*/*LogError*/RAW-RECO and dataset.last_update older_than 90 days ago
+ProtectBlock dataset.name == /*/*LogError*/RAW-RECO and blockreplica.last_update newer_than 90 days ago
+Dismiss dataset.name == /*/*LogError*/RAW-RECO
 
 Dismiss dataset.usage_rank > 400
 Dismiss dataset.last_update older_than 600 days ago and replica.last_block_created older_than 30 days ago and replica.num_access == 0
