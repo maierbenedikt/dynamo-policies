@@ -10,10 +10,10 @@ When always
 Until never
 
 ### Policies
-Protect replica.has_locked_block
+ProtectBlock blockreplica.is_locked
 
 Protect dataset.on_tape == PARTIAL
-Protect dataset.is_last_transfer_source
+Protect replica.is_last_transfer_source
 
 Protect dataset.name == /*/*/RAW and dataset.on_tape != FULL
 
