@@ -3,7 +3,8 @@ On site.name in [T0_CH_CERN_Disk T1_*_Disk T2_*]
 
 ### Deletion trigger
 When site.occupancy > 0.9
-Until site.occupancy < 0.85
+When site.status == MORGUE
+Until site.status != MORGUE and site.occupancy < 0.85
 
 ### Replica protection / deletion policies
 ProtectBlock blockreplica.is_locked
