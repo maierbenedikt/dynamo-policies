@@ -7,8 +7,7 @@ Until never
 
 ProtectBlock blockreplica.is_locked
 
-ProtectBlock dataset.name == /*/*/FEVT and blockreplica.last_update newer_than 60 days ago
-ProtectBlock dataset.name == /*/*/DQMIO and blockreplica.last_update newer_than 60 days ago
+ProtectBlock blockreplica.last_update newer_than 60 days ago
 
 Protect dataset.name == /*/*/ALCARECO and replica.first_block_created newer_than January 1
 Protect dataset.name == /*/*/ALCAPROMPT and replica.first_block_created newer_than January 1
