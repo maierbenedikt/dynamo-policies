@@ -1,0 +1,48 @@
+### Target sites
+On site.name in [T0_CH_CERN_Disk T1_*_Disk T2_*]
+
+### Deletion trigger
+When always
+Until never
+
+### Replica protection / deletion policies
+
+Protect blockreplica.is_locked
+
+Protect dataset.on_tape != FULL
+
+# Run2016 18Apr2017
+
+Protect dataset.name == /SingleMuon/Run2016B-18Apr2017_ver2-v1/AOD
+Protect dataset.name == /SingleMuon/Run2016?-18Apr2017-v?/AOD
+Protect dataset.name == /SingleMuon/Run2016G-ZMu-18Apr2017-v1/RAW-RECO
+Protect dataset.name == /ZeroBias/Run2016G-SiStripCalMinBias-18Apr2017-v1/ALCARECO
+Protect dataset.name == /ZeroBias/Run2016H-SiStripCalMinBias-18Apr2017-v1/ALCARECO
+
+Protect dataset.name == /*/Run2016?-18Apr2017*/MINIAOD
+Protect dataset.name == /*/Run2016?-18Apr2017*/DQMIO
+Dismiss dataset.name == /*/Run2016?-*18Apr2017*/*
+
+# PhaseIFall16DR
+
+Protect dataset.name == /QCD_Pt-15to3000_TuneCUETP8M1_Flat_13TeV_pythia8/PhaseIFall16DR-PUFlat0to70_90X_upgrade2017_realistic_v6_C1-v2/*
+Protect dataset.name == /SinglePion_PT0to200/PhaseIFall16DR-NoPUNZS_90X_upgrade2017_realistic_v6_C1-v2/*
+Protect dataset.name == /SinglePion_PT200to500/PhaseIFall16DR-NoPUNZS_90X_upgrade2017_realistic_v6_C1-v2/*
+Protect dataset.name == /SinglePhoton_FlatPt-0to200_13TeV_FlatRandomPtGun/PhaseIFall16DR-NoPUNZS_90X_upgrade2017_realistic_v6_C1-v2/*
+Protect dataset.name == /VBFHToTauTau_M125_13TeV_powheg_pythia8/PhaseIFall16DR-FlatPU28to62HcalNZSRAW_90X_upgrade2017_realistic_v6_C1-v1/*
+
+Dismiss dataset.name == /TT_TuneCUETP8M2T4_13TeV-powheg-pythia8/PhaseIFall16DR-FlatPU28to62HcalNZSRAWFEVTDEBUGHLT_90X_upgrade2017_realistic_v6_C1-v1/GEN-SIM-DIGI-RAW
+Dismiss dataset.name == /TT_TuneCUETP8M2T4_13TeV-powheg-pythia8/PhaseIFall16DR-FlatPU28to62HcalNZSRAWFEVTDEBUGHLT_81X_upgrade2017_realistic_v26-v2/GEN-SIM-DIGI-RAW
+
+Protect dataset.name == /*/*PhaseIFall16*NZS*_90X_upgrade2017_realistic_v6_C1*/*
+Protect dataset.name == /*/*PhaseIFall16*NZS*_81X_upgrade2017_realistic_v26*/*
+
+Dismiss dataset.name == /*/*PhaseIFall16*/*
+
+# PhaseIIFall16DR82
+
+Dismiss dataset.name == /*/*PhaseIIFall16*/*
+
+# Default
+
+Protect
