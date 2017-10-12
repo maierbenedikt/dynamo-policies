@@ -27,9 +27,6 @@ Dismiss dataset.name == /*/Run2016?-*18Apr2017*/*
 
 Protect dataset.name == /QCD_Pt-15to3000_TuneCUETP8M1_Flat_13TeV_pythia8/PhaseIFall16DR-PUFlat0to70_90X_upgrade2017_realistic_v6_C1-v2/*
 
-Dismiss dataset.name == /TT_TuneCUETP8M2T4_13TeV-powheg-pythia8/PhaseIFall16DR-FlatPU28to62HcalNZSRAWFEVTDEBUGHLT_90X_upgrade2017_realistic_v6_C1-v1/GEN-SIM-DIGI-RAW
-Dismiss dataset.name == /TT_TuneCUETP8M2T4_13TeV-powheg-pythia8/PhaseIFall16DR-FlatPU28to62HcalNZSRAWFEVTDEBUGHLT_81X_upgrade2017_realistic_v26-v2/GEN-SIM-DIGI-RAW
-
 Protect dataset.name == /*/*PhaseIFall16*NZS*_90X_upgrade2017_realistic_v6_C1*/*
 Protect dataset.name == /*/*PhaseIFall16*NZS*_81X_upgrade2017_realistic_v26*/*
 
