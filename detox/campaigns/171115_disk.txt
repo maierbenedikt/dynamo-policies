@@ -7,6 +7,8 @@ On site.name in [T1_*_Disk T2_*] and site.status == READY
 When always
 Until never
 
+Protect blockreplica.is_locked
+
 # Protect anything without full tape copy
 
 Protect dataset.on_tape != FULL
@@ -247,6 +249,30 @@ Protect dataset.name == /L1MinimumBias7/Run2016B-PromptReco-v2/AOD
 Protect dataset.name == /L1MinimumBias8/Run2016B-PromptReco-v2/AOD
 Protect dataset.name == /L1MinimumBias9/Run2016B-PromptReco-v2/AOD
 Protect dataset.name == /HighMultiplicityEOF/Run2016B-PromptReco-v2/AOD
+
+Protect dataset.name == /DiPhotonJets_7TeV-madgraph/Summer12_DR53X-PU_RD1_START53_V7N-v1/AODSIM
+Protect dataset.name == /DiPhotonJets_8TeV-madgraph-tarball-v2/Summer12_DR53X-PU_RD1_START53_V7N-v1/AODSIM
+Protect dataset.name == /DiPhotonJetsBox_M60_8TeV-sherpa/Summer12_DR53X-PU_RD1_START53_V7N-v1/AODSIM
+Protect dataset.name == /DYJets_0p0_1p2_2p10_3p15_4p15_CT10_8TeV-sherpa/Summer12_DR53X-PU_RD1_START53_V7N-v1/AODSIM
+Protect dataset.name == /DYJetsToLL_M-50_TuneZ2Star_8TeV-madgraph-tarball/Summer12_DR53X-No_PU_RD1_START53_V7N-v1/AODSIM
+Protect dataset.name == /GluGluTo4L_Contin_8TeV-gg2vv315-pythia6/Summer12_DR53X-PU_S10_START53_V19-v3/AODSIM
+Protect dataset.name == /tGamma_FCNC_tGc_8TeV_protos/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM
+Protect dataset.name == /TTJets_FullLeptMGDecays_TuneP11_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM
+Protect dataset.name == /TTJets_FullLeptMGDecays_TuneP11mpiHi_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM
+Protect dataset.name == /TTJets_FullLeptMGDecays_TuneP11noCR_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM
+Protect dataset.name == /TTJets_FullLeptMGDecays_TuneP11TeV_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM
+Protect dataset.name == /TTJets_HadronicMGDecays_TuneP11mpiHi_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM
+Protect dataset.name == /TTJets_HadronicMGDecays_TuneP11noCR_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM
+Protect dataset.name == /TTJets_HadronicMGDecays_TuneP11TeV_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM
+Protect dataset.name == /TTJets_SemiLeptMGDecays_TuneP11_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM
+Protect dataset.name == /TTJets_SemiLeptMGDecays_TuneP11mpiHi_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM
+Protect dataset.name == /TTJets_SemiLeptMGDecays_TuneP11TeV_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM
+Protect dataset.name == /TT_SC_CT10_TuneZ2star_8TeV-powheg-tauola/Summer12_DR53X-PU_S10_START53_V19-v2/AODSIM
+Protect dataset.name == /TT_SemiLept_nogg_CT10_TuneZ2star_8TeV-powheg/Summer12_DR53X-PU_S10_START53_V19-v2/AODSIM
+Protect dataset.name == /TZJetsTo3LNuB_FCNC_zeta_zct_8TeV_madgraph/Summer12_DR53X-PU_S10_START53_V19-v2/AODSIM
+Protect dataset.name == /TZJetsTo3LNuB_FCNC_zeta_zut_8TeV_madgraph/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM
+Protect dataset.name == /WWGJets_8TeV-madgraph_v2/Summer12_DR53X-PU_RD1_START53_V7N-v1/AODSIM
+Protect dataset.name == /ZZTo4e_8TeV_mll8_mZZ95-160-powheg15-pythia6/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM
 
 # Protect what's on CNAF MSS since the site is currently down due to water damage
 
@@ -3939,39 +3965,39 @@ Protect dataset.name == /ZZZ_TuneCUETP8M1_13TeV-amcatnlo-pythia8/RunIISpring15Mi
 
 # Finally dismiss all the campaigns that we should delete from disk
 
-Dismiss dataset.name == /*/Commissioning2015*/*
-Dismiss dataset.name == /*/Run2015*PromptReco*/*
-Dismiss dataset.name == /*/Run2015*05Aug2015*/*
-Dismiss dataset.name == /*/Run2016A*PromptReco*/*
-Dismiss dataset.name == /*/Run2016B*PromptReco*/*
-Dismiss dataset.name == /*/Run2016C*PromptReco*/*
-Dismiss dataset.name == /*/Run2016D*PromptReco*/*
-Dismiss dataset.name == /*/Run2016E*PromptReco*/*
-Dismiss dataset.name == /*/Run2016F*PromptReco*/*
-Dismiss dataset.name == /*/Run2016G*PromptReco*/*
-Dismiss dataset.name == /*/Commissioning2016*/*
+Delete dataset.name == /*/Commissioning2015*/*
+Delete dataset.name == /*/Run2015*PromptReco*/*
+Delete dataset.name == /*/Run2015*05Aug2015*/*
+Delete dataset.name == /*/Run2016A*PromptReco*/*
+Delete dataset.name == /*/Run2016B*PromptReco*/*
+Delete dataset.name == /*/Run2016C*PromptReco*/*
+Delete dataset.name == /*/Run2016D*PromptReco*/*
+Delete dataset.name == /*/Run2016E*PromptReco*/*
+Delete dataset.name == /*/Run2016F*PromptReco*/*
+Delete dataset.name == /*/Run2016G*PromptReco*/*
+Delete dataset.name == /*/Commissioning2016*/*
 
-Dismiss dataset.name == /*/Summer11*/*
-Dismiss dataset.name == /*/Fall11*/*
-Dismiss dataset.name == /*/Summer12*/*
-Dismiss dataset.name == /*/Summer13*/*
-Dismiss dataset.name == /*/Fall13dr*/*
-Dismiss dataset.name == /*/Phys14*/*
-Dismiss dataset.name == /*/Spring14*/*
-Dismiss dataset.name == /*/TTI2023Upg14D*/*
-Dismiss dataset.name == /*/ppSpring2014*/*
-Dismiss dataset.name == /*/GEM2019Upg14DR*/*
-Dismiss dataset.name == /*/RunIISpring15DR74*/*
-Dismiss dataset.name == /*/RunIISpring15MiniAODv2*/*
-Dismiss dataset.name == /*/RunIISpring15FSPremix*/*
-Dismiss dataset.name == /*/RunIIFall15DR75*/*
-Dismiss dataset.name == /*/RunIIFall15MiniAOD*/*
-Dismiss dataset.name == /*/RunIISpring16DR*/*
-Dismiss dataset.name == /*/RunIISpring16MiniAOD*/*
-Dismiss dataset.name == /*/RunIISpring16reHLT*/*
-Dismiss dataset.name == /*/TP2013*/*
-Dismiss dataset.name == /*/TestSingleHarvest*/*
-Dismiss dataset.name == /*/DMWM*/*
+Delete dataset.name == /*/Summer11*/*
+Delete dataset.name == /*/Fall11*/*
+Delete dataset.name == /*/Summer12*/*
+Delete dataset.name == /*/Summer13*/*
+Delete dataset.name == /*/Fall13dr*/*
+Delete dataset.name == /*/Phys14*/*
+Delete dataset.name == /*/Spring14*/*
+Delete dataset.name == /*/TTI2023Upg14D*/*
+Delete dataset.name == /*/ppSpring2014*/*
+Delete dataset.name == /*/GEM2019Upg14DR*/*
+Delete dataset.name == /*/RunIISpring15DR74*/*
+Delete dataset.name == /*/RunIISpring15MiniAODv2*/*
+Delete dataset.name == /*/RunIISpring15FSPremix*/*
+Delete dataset.name == /*/RunIIFall15DR75*/*
+Delete dataset.name == /*/RunIIFall15MiniAOD*/*
+Delete dataset.name == /*/RunIISpring16DR*/*
+Delete dataset.name == /*/RunIISpring16MiniAOD*/*
+Delete dataset.name == /*/RunIISpring16reHLT*/*
+Delete dataset.name == /*/TP2013*/*
+Delete dataset.name == /*/TestSingleHarvest*/*
+Delete dataset.name == /*/DMWM*/*
 
 # All else are protected
 
