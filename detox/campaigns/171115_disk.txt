@@ -225,9 +225,6 @@ Protect dataset.name == /QCD_Pt-15to3000_Tune4C_Flat_8TeV_pythia8/Summer12DR53X-
 Protect dataset.name == /QCD_Pt-15to3000_TuneEE3C_Flat_8TeV_herwigpp/Summer12DR53X-E8TeV_AVE_4_BX_50ns_START53_V19-v1/AODSIM
 Protect dataset.name == /QCD_Pt-15to3000_Tune4C_Flat_8TeV_pythia8/Summer12_DR53X-NoPileUp_START53_V19-v1/AODSIM
 Protect dataset.name == /DYToMuMu_M-15To50_Tune4C_8TeV-pythia8/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM
-Protect dataset.name == /UpsilonMuMu_UpsilonPt6_TuneCUEP8M1_13TeV-pythia8-evtgen/RunIIFall15MiniAODv1-PU25nsData2015v1_76X_mcRun2_asymptotic_v12-v1/MINIAODSIM
-Protect dataset.name == /UpsilonMuMu_UpsilonPt6_TuneCUEP8M1_13TeV-pythia8-evtgen/RunIISpring16MiniAODv1-PUSpring16_80X_mcRun2_asymptotic_2016_v3-v1/MINIAODSIM
-Protect dataset.name == /PhiToMuMu_TuneCUEP8M1_13TeV-pythia8-evtgen/RunIISpring16MiniAODv2-premix_withHLT_80X_mcRun2_asymptotic_v14-v1/MINIAODSIM
 Protect dataset.name == /ZToEE_NNPDF30_13TeV-powheg_M_120_200/RunIISpring16reHLT80-PUSpring16RAWAODSIM_reHLT_80X_mcRun2_asymptotic_v14-v1/AODSIM
 Protect dataset.name == /ZToEE_NNPDF30_13TeV-powheg_M_1400_2300/RunIISpring16reHLT80-PUSpring16RAWAODSIM_reHLT_80X_mcRun2_asymptotic_v14-v1/AODSIM
 Protect dataset.name == /ZToEE_NNPDF30_13TeV-powheg_M_200_400/RunIISpring16reHLT80-PUSpring16RAWAODSIM_reHLT_80X_mcRun2_asymptotic_v14-v1/AODSIM
@@ -2016,7 +2013,9 @@ Protect dataset.name == /QCD_Pt_120to170_TuneCUETP8M1_13TeV_pythia8/RunIISpring1
 Protect dataset.name == /QCD_Pt-15to20_EMEnriched_TuneCUETP8M1_13TeV_pythia8/RunIISpring16DR80-FlatPU8to37HcalNZSRAW_withHLT_80X_mcRun2_asymptotic_v14-v1/GEN-SIM-RAW
 Protect dataset.name == /QCD_Pt-15to20_EMEnriched_TuneCUETP8M1_13TeV_pythia8/RunIISpring16MiniAODv2-FlatPU8to37HcalNZSRAW_withHLT_80X_mcRun2_asymptotic_v14-v1/MINIAODSIM
 Protect dataset.name == /QCD_Pt-15to20_MuEnrichedPt5_TuneCUETP8M1_13TeV_pythia8/RunIISpring16DR80-FlatPU8to37HcalNZSRAW_withHLT_80X_mcRun2_asymptotic_v14-v1/AODSIM
+Protect dataset.name == /QCD_Pt-15to20_MuEnrichedPt5_TuneCUETP8M1_13TeV_pythia8/RunIISpring16DR80-FlatPU8to37HcalNZSRAW_withHLT_80X_mcRun2_asymptotic_v14_ext1-v1/AODSIM
 Protect dataset.name == /QCD_Pt-15to20_MuEnrichedPt5_TuneCUETP8M1_13TeV_pythia8/RunIISpring16DR80-FlatPU8to37HcalNZSRAW_withHLT_80X_mcRun2_asymptotic_v14-v1/GEN-SIM-RAW
+Protect dataset.name == /QCD_Pt-15to20_MuEnrichedPt5_TuneCUETP8M1_13TeV_pythia8/RunIISpring16DR80-FlatPU8to37HcalNZSRAW_withHLT_80X_mcRun2_asymptotic_v14_ext1-v1/GEN-SIM-RAW
 Protect dataset.name == /QCD_Pt-15to20_MuEnrichedPt5_TuneCUETP8M1_13TeV_pythia8/RunIISpring16MiniAODv2-FlatPU8to37HcalNZSRAW_withHLT_80X_mcRun2_asymptotic_v14-v1/MINIAODSIM
 Protect dataset.name == /QCD_Pt-15to3000_TuneCUETP8M1_Flat_13TeV_pythia8/RunIISpring16DR80-NoPURAW_NZS_withHLT_80X_mcRun2_asymptotic_v14-v1/AODSIM
 Protect dataset.name == /QCD_Pt-15to3000_TuneCUETP8M1_Flat_13TeV_pythia8/RunIISpring16DR80-NoPURAW_NZS_withHLT_80X_mcRun2_asymptotic_v14-v1/GEN-SIM-RAW
@@ -2049,6 +2048,8 @@ Protect dataset.name == /QCD_Pt-300toInf_EMEnriched_TuneCUETP8M1_13TeV_pythia8/R
 Protect dataset.name == /QCD_Pt-300toInf_EMEnriched_TuneCUETP8M1_13TeV_pythia8/RunIISpring16MiniAODv2-PUSpring16_80X_mcRun2_asymptotic_2016_miniAODv2_v0-v1/MINIAODSIM
 Protect dataset.name == /QCD_Pt-30to40_DoubleEMEnriched_MGG-80toInf_TuneCUETP8M1_13TeV_Pythia8/RunIISpring15DR74-Asympt25ns_MCRUN2_74_V9-v1/MINIAODSIM
 Protect dataset.name == /QCD_Pt-30to50_MuEnrichedPt5_TuneCUETP8M1_13TeV_pythia8/RunIISpring15DR74-Asympt25ns_MCRUN2_74_V9-v1/MINIAODSIM
+Protect dataset.name == /QCD_Pt-30to50_MuEnrichedPt5_TuneCUETP8M1_13TeV_pythia8/RunIISpring16DR80-FlatPU8to37HcalNZSRAW_withHLT_80X_mcRun2_asymptotic_v14-v1/AODSIM
+Protect dataset.name == /QCD_Pt-30to50_MuEnrichedPt5_TuneCUETP8M1_13TeV_pythia8/RunIISpring16DR80-FlatPU8to37HcalNZSRAW_withHLT_80X_mcRun2_asymptotic_v14-v1/GEN-SIM-RAW
 Protect dataset.name == /QCD_Pt_30to50_TuneCUETP8M1_13TeV_pythia8/RunIIFall15MiniAODv1-PU25nsData2015v1_76X_mcRun2_asymptotic_v12-v1/MINIAODSIM
 Protect dataset.name == /QCD_Pt_30to50_TuneCUETP8M1_13TeV_pythia8/RunIISpring16DR80-PUSpring16_ALCATkAlMinBias_Peak_80X_mcRun2_asymptotic_2016_peak_v0-v1/AODSIM
 Protect dataset.name == /QCD_Pt_30to50_TuneCUETP8M1_13TeV_pythia8/RunIISpring16DR80-TkAlMinBias-PUSpring16_ALCATkAlMinBias_Peak_80X_mcRun2_asymptotic_2016_peak_v0-v1/ALCARECO
