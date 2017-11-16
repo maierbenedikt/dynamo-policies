@@ -7,6 +7,8 @@ On site.name in [T1_*_Disk T2_*] and site.status == READY
 When always
 Until never
 
+Protect blockreplica.is_locked
+
 # Protect anything without full tape copy
 
 Protect dataset.on_tape != FULL
@@ -247,6 +249,30 @@ Protect dataset.name == /L1MinimumBias7/Run2016B-PromptReco-v2/AOD
 Protect dataset.name == /L1MinimumBias8/Run2016B-PromptReco-v2/AOD
 Protect dataset.name == /L1MinimumBias9/Run2016B-PromptReco-v2/AOD
 Protect dataset.name == /HighMultiplicityEOF/Run2016B-PromptReco-v2/AOD
+
+Protect dataset.name == /DiPhotonJets_7TeV-madgraph/Summer12_DR53X-PU_RD1_START53_V7N-v1/AODSIM
+Protect dataset.name == /DiPhotonJets_8TeV-madgraph-tarball-v2/Summer12_DR53X-PU_RD1_START53_V7N-v1/AODSIM
+Protect dataset.name == /DiPhotonJetsBox_M60_8TeV-sherpa/Summer12_DR53X-PU_RD1_START53_V7N-v1/AODSIM
+Protect dataset.name == /DYJets_0p0_1p2_2p10_3p15_4p15_CT10_8TeV-sherpa/Summer12_DR53X-PU_RD1_START53_V7N-v1/AODSIM
+Protect dataset.name == /DYJetsToLL_M-50_TuneZ2Star_8TeV-madgraph-tarball/Summer12_DR53X-No_PU_RD1_START53_V7N-v1/AODSIM
+Protect dataset.name == /GluGluTo4L_Contin_8TeV-gg2vv315-pythia6/Summer12_DR53X-PU_S10_START53_V19-v3/AODSIM
+Protect dataset.name == /tGamma_FCNC_tGc_8TeV_protos/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM
+Protect dataset.name == /TTJets_FullLeptMGDecays_TuneP11_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM
+Protect dataset.name == /TTJets_FullLeptMGDecays_TuneP11mpiHi_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM
+Protect dataset.name == /TTJets_FullLeptMGDecays_TuneP11noCR_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM
+Protect dataset.name == /TTJets_FullLeptMGDecays_TuneP11TeV_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM
+Protect dataset.name == /TTJets_HadronicMGDecays_TuneP11mpiHi_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM
+Protect dataset.name == /TTJets_HadronicMGDecays_TuneP11noCR_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM
+Protect dataset.name == /TTJets_HadronicMGDecays_TuneP11TeV_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM
+Protect dataset.name == /TTJets_SemiLeptMGDecays_TuneP11_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM
+Protect dataset.name == /TTJets_SemiLeptMGDecays_TuneP11mpiHi_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM
+Protect dataset.name == /TTJets_SemiLeptMGDecays_TuneP11TeV_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM
+Protect dataset.name == /TT_SC_CT10_TuneZ2star_8TeV-powheg-tauola/Summer12_DR53X-PU_S10_START53_V19-v2/AODSIM
+Protect dataset.name == /TT_SemiLept_nogg_CT10_TuneZ2star_8TeV-powheg/Summer12_DR53X-PU_S10_START53_V19-v2/AODSIM
+Protect dataset.name == /TZJetsTo3LNuB_FCNC_zeta_zct_8TeV_madgraph/Summer12_DR53X-PU_S10_START53_V19-v2/AODSIM
+Protect dataset.name == /TZJetsTo3LNuB_FCNC_zeta_zut_8TeV_madgraph/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM
+Protect dataset.name == /WWGJets_8TeV-madgraph_v2/Summer12_DR53X-PU_RD1_START53_V7N-v1/AODSIM
+Protect dataset.name == /ZZTo4e_8TeV_mll8_mZZ95-160-powheg15-pythia6/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM
 
 # Protect what's on CNAF MSS since the site is currently down due to water damage
 
