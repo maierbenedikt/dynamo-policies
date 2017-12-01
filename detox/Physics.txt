@@ -35,6 +35,7 @@ Dismiss dataset.last_update older_than 150 days ago and replica.last_block_creat
 
 Protect dataset.on_tape != FULL and replica.num_full_disk_copy_common_owner < 3
 Protect dataset.name == /*/*/MINIAOD* and replica.num_full_disk_copy_common_owner < 3
+Protect dataset.name == /*/*/MINIAOD* and replica.last_copy_usa
 Protect replica.num_full_disk_copy_common_owner < 2
 
 # Default decision
