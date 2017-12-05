@@ -30,8 +30,8 @@ DismissBlock dataset.name == /*/*LogError*/RAW-RECO and blockreplica.last_update
 
 Protect dataset.on_protected_site and replica.num_full_disk_copy_common_owner < 2
 
-Dismiss dataset.usage_rank > 100
-Dismiss dataset.last_update older_than 150 days ago and replica.last_block_created older_than 30 days ago and replica.num_access == 0
+Dismiss dataset.usage_rank > 400
+Dismiss dataset.last_update older_than 600 days ago and replica.last_block_created older_than 30 days ago and replica.num_access == 0
 
 Protect dataset.on_tape != FULL and replica.num_full_disk_copy_common_owner < 3
 Protect dataset.name == /*/*/MINIAOD* and replica.num_full_disk_copy_common_owner < 3
