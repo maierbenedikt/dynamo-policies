@@ -1,0 +1,215 @@
+On site.name in [T1_*_Disk T2_*] and site.status == READY
+
+# Deletion trigger
+
+When always
+Until never
+
+# Protect locked stuff
+
+Protect blockreplica.is_locked
+
+# Protect anything without full tape copy
+
+Protect dataset.on_tape != FULL
+
+# Protect datasets whose tape copy may be under water
+
+Protect dataset.on_protected_site and replica.num_full_disk_copy_common_owner < 2
+
+# Delete specific ALCARECO datasets
+
+Protect dataset.name == /DoubleEG/Run2017B-HcalCalIsoTrkFilter-12Sep2017-v1/ALCARECO
+Protect dataset.name == /DoubleEG/Run2017C-HcalCalIsoTrkFilter-12Sep2017-v1/ALCARECO
+Protect dataset.name == /JetHT/Run2017B-HcalCalIsoTrkFilter-12Sep2017-v1/ALCARECO
+Protect dataset.name == /JetHT/Run2017C-HcalCalIsoTrkFilter-12Sep2017-v1/ALCARECO
+Protect dataset.name == /JetHT/Run2017E-HcalCalIsoTrkFilter-PromptReco-v1/ALCARECO
+Protect dataset.name == /SingleMuon/Run2017B-HcalCalHBHEMuonFilter-12Sep2017-v1/ALCARECO
+Protect dataset.name == /SingleMuon/Run2017C-HcalCalHBHEMuonFilter-12Sep2017-v1/ALCARECO
+Protect dataset.name == /SingleMuon/Run2017C-HcalCalIterativePhiSym-12Sep2017-v1/ALCARECO
+
+Delete dataset.name == /*/Run2016B-ALCARECOHcalCalIterativePhiSym-23Sep2016-v3/ALCARECO
+Delete dataset.name == /*/Run2016B-HcalCalDijets-23Sep2016-v3/ALCARECO
+Delete dataset.name == /*/Run2016B-HcalCalGammaJet-23Sep2016-v3/ALCARECO
+Delete dataset.name == /*/Run2017B-HcalCalHBHEMuonFilter-12Sep2017-v1/ALCARECO 
+Delete dataset.name == /*/Run2017B-HcalCalIterativePhiSym-12Sep2017-v1/ALCARECO
+Delete dataset.name == /*/Run2016B-SiStripCalMinBias-23Sep2016-v3/ALCARECO
+Delete dataset.name == /*/Run2017B-SiStripCalMinBias-12Sep2017-v1/ALCARECO
+Delete dataset.name == /*/Run2016C-HcalCalDijets-22Feb2017-v1/ALCARECO
+Delete dataset.name == /*/Run2016C-HcalCalDijets-23Sep2016-v1/ALCARECO
+Delete dataset.name == /*/Run2017C-HcalCalGammaJet-12Sep2017-v1/ALCARECO
+Delete dataset.name == /*/Run2017C-HcalCalHBHEMuonFilter-12Sep2017-v1/ALCARECO
+Delete dataset.name == /*/Run2017C-HcalCalIsoTrkFilter-12Sep2017-v1/ALCARECO
+Delete dataset.name == /*/Run2017C-HcalCalIterativePhiSym-12Sep2017-v1/ALCARECO
+Delete dataset.name == /*/Run2017C-SiStripCalMinBias-12Sep2017-v1/ALCARECO
+Delete dataset.name == /*/Run2017C-SiStripCalZeroBias-12Sep2017-v1/ALCARECO
+Delete dataset.name == /*/Run2015D-SiStripCalMinBias-16Dec2015-v1/ALCARECO
+Delete dataset.name == /*/Run2017D-HcalCalHBHEMuonFilter-PromptReco-v1/ALCARECO
+Delete dataset.name == /*/Run2017D-SiStripCalMinBias-PromptReco-v1/ALCARECO
+Delete dataset.name == /*/Run2016E-HcalCalDijets-22Feb2017-v1/ALCARECO
+Delete dataset.name == /*/Run2016E-HcalCalDijets-23Sep2016-v1/ALCARECO
+Delete dataset.name == /*/Run2017E-HcalCalHBHEMuonFilter-PromptReco-v1/ALCARECO
+Delete dataset.name == /*/Run2017E-HcalCalIsoTrkFilter-PromptReco-v1/ALCARECO
+Delete dataset.name == /*/Run2016F-HcalCalDijets-22Feb2017-v1/ALCARECO
+Delete dataset.name == /*/Run2016F-HcalCalDijets-23Sep2016-v1/ALCARECO
+Delete dataset.name == /*/Run2016G-ALCARECOHcalCalIterativePhiSym-23Sep2016-v1/ALCARECO
+Delete dataset.name == /*/Run2016G-HcalCalDijets-22Feb2017-v1/ALCARECO
+Delete dataset.name == /*/Run2016G-HcalCalDijets-23Sep2016-v1/ALCARECO
+Delete dataset.name == /*/Run2016H-HcalCalDijets-22Feb2017-v1/ALCARECO
+
+# Delete GEN-SIM-RAW
+
+Protect dataset.name == /*/RunIISummer17DR*/GEN-SIM-RAW
+Protect dataset.name == /XXTo4J_M-300_CTau-1000mm_TuneCUETP8M1_13TeV_pythia8/PhaseIFall16DR-FlatPU28to62HcalNZSRAW_90X_upgrade2017_realistic_v6_C1-v2/GEN-SIM-RAW
+Protect dataset.name == /XXTo4J_M-300_CTau-30mm_TuneCUETP8M1_13TeV_pythia8/PhaseIFall16DR-FlatPU28to62HcalNZSRAW_90X_upgrade2017_realistic_v6_C1-v1/GEN-SIM-RAW
+Protect dataset.name == /XXTo4J_M-300_CTau-3mm_TuneCUETP8M1_13TeV_pythia8/PhaseIFall16DR-FlatPU28to62HcalNZSRAW_90X_upgrade2017_realistic_v6_C1-v1/GEN-SIM-RAW
+Protect dataset.name == /XXTo4J_M-500_CTau-1000mm_TuneCUETP8M1_13TeV_pythia8/PhaseIFall16DR-FlatPU28to62HcalNZSRAW_90X_upgrade2017_realistic_v6_C1-v1/GEN-SIM-RAW
+Protect dataset.name == /XXTo4J_M-500_CTau-3mm_TuneCUETP8M1_13TeV_pythia8/PhaseIFall16DR-FlatPU28to62HcalNZSRAW_90X_upgrade2017_realistic_v6_C1-v1/GEN-SIM-RAW
+Protect dataset.name == /AMPT_PbP_5020_DataBS/pPb502Winter16DR-MB_80X_mcRun2_pA_5TeV_v4-v2/GEN-SIM-RAW
+Protect dataset.name == /AMPT_PbP_8160_DataBS/pPb816Summer16DR-MB_80X_mcRun2_pA_v4-v2/GEN-SIM-RAW
+Protect dataset.name == /AMPT_pPb_5020_DataBS/pPb502Winter16DR-MB_80X_mcRun2_pA_5TeV_v4-v2/GEN-SIM-RAW
+Protect dataset.name == /AMPT_pPb_8160_DataBS/pPb816Summer16DR-MB_80X_mcRun2_pA_v4-v2/GEN-SIM-RAW
+
+Delete dataset.name == /*/*/GEN-SIM-RAW
+
+# Delete GEN-SIM-DIGI-RAW
+
+Protect dataset.name == /*/PhaseIITDRFall17*/GEN-SIM-DIGI-RAW
+Protect dataset.name == /*/*NZS*/GEN-SIM-DIGI-RAW
+Protect dataset.name == /Neutrino*/*/GEN-SIM-DIGI-RAW
+
+Protect dataset.name == /DYJetsToLL_M-50_TuneCUETP8M1_14TeV-madgraphMLM-pythia8_ext1/PhaseIISpring17D-NoPU_90X_upgrade2023_realistic_v9-v1/GEN-SIM-DIGI-RAW
+Protect dataset.name == /DYJetsToLL_M-50_TuneCUETP8M1_14TeV-madgraphMLM-pythia8_ext1/PhaseIISpring17D-PU140_100M_90X_upgrade2023_realistic_v9-v1/GEN-SIM-DIGI-RAW
+Protect dataset.name == /SingleE_FlatPt-8to100/PhaseIISpring17D-NoPU_90X_upgrade2023_realistic_v9-v1/GEN-SIM-DIGI-RAW
+Protect dataset.name == /SingleMu_FlatPt-8to100/PhaseIISpring17D-NoPU_90X_upgrade2023_realistic_v9-v1/GEN-SIM-DIGI-RAW
+Protect dataset.name == /SingleNeutrino/PhaseIISpring17D-PU140_90X_upgrade2023_realistic_v9-v1/GEN-SIM-DIGI-RAW
+Protect dataset.name == /SinglePhoton_FlatPt-8to150/PhaseIISpring17D-NoPU_90X_upgrade2023_realistic_v9-v1/GEN-SIM-DIGI-RAW
+Protect dataset.name == /SinglePion0_FlatPt-8to100/PhaseIISpring17D-NoPU_90X_upgrade2023_realistic_v9-v1/GEN-SIM-DIGI-RAW
+Protect dataset.name == /SinglePion_FlatPt-8to100/PhaseIISpring17D-NoPU_90X_upgrade2023_realistic_v9-v1/GEN-SIM-DIGI-RAW
+Protect dataset.name == /SingleTauOneProngFlatPt10To100/PhaseIISpring17D-NoPU_90X_upgrade2023_realistic_v9-v1/GEN-SIM-DIGI-RAW
+Protect dataset.name == /SingleTau_FlatPt-8to150/PhaseIISpring17D-NoPU_90X_upgrade2023_realistic_v9-v1/GEN-SIM-DIGI-RAW
+Protect dataset.name == /TT_TuneCUETP8M1_14TeV-powheg-pythia8/PhaseIISpring17D-NoPU_pilot_90X_upgrade2023_realistic_v9-v1/GEN-SIM-DIGI-RAW
+Protect dataset.name == /TT_TuneCUETP8M1_14TeV-powheg-pythia8/PhaseIISpring17D-PU140_pilot_90X_upgrade2023_realistic_v9-v1/GEN-SIM-DIGI-RAW
+Protect dataset.name == /TT_TuneCUETP8M2T4_14TeV-powheg-pythia8/PhaseIISpring17D-NoPU_90X_upgrade2023_realistic_v9-v1/GEN-SIM-DIGI-RAW
+Protect dataset.name == /TT_TuneCUETP8M2T4_14TeV-powheg-pythia8/PhaseIISpring17D-PU140_100M_90X_upgrade2023_realistic_v9-v1/GEN-SIM-DIGI-RAW
+Protect dataset.name == /TTbar_14TeV_TuneCUETP8M1_PhaseIIFall16/PhaseIISpring17D-NoPU_pilot_90X_upgrade2023_realistic_v9-v2/GEN-SIM-DIGI-RAW
+Protect dataset.name == /TTbar_14TeV_TuneCUETP8M1_PhaseIIFall16/PhaseIISpring17D-PU140_100M_pilot_90X_upgrade2023_realistic_v9-v1/GEN-SIM-DIGI-RAW
+Protect dataset.name == /VBF_HToInvisible_M125_14TeV_powheg_pythia8/PhaseIISpring17D-NoPU_90X_upgrade2023_realistic_v9-v1/GEN-SIM-DIGI-RAW
+Protect dataset.name == /VBF_HToInvisible_M125_14TeV_powheg_pythia8/PhaseIISpring17D-PU140_100M_90X_upgrade2023_realistic_v9-v1/GEN-SIM-DIGI-RAW
+Protect dataset.name == /QCD_Pt-15to3000_Tune4C_14TeV_pythia8/PhaseIISpring17D-NoPU_90X_upgrade2023_realistic_v9-v1/GEN-SIM-DIGI-RAW
+Protect dataset.name == /QCD_Pt-15to3000_Tune4C_14TeV_pythia8/PhaseIISpring17D-PU140_100M_90X_upgrade2023_realistic_v9-v1/GEN-SIM-DIGI-RAW
+Protect dataset.name == /SingleE_FlatPt-8to100/PhaseIISpring17D-PU140_90X_upgrade2023_realistic_v9-v1/GEN-SIM-DIGI-RAW
+
+Delete dataset.name == /*/*/GEN-SIM-DIGI-RAW
+
+# Delete RAW
+
+Protect dataset.name == /*Scouting*/*/RAW
+Protect dataset.name == /*/Run2017*/RAW
+Protect dataset.name == /MuonEG/Run2016B-v2/RAW
+
+Delete dataset.name == /*/*/RAW
+
+# Delete RAW-RECO
+
+Protect dataset.name == /*/Run2016*-07Aug17*/RAW-RECO
+Protect dataset.name == /*/Run2017*-12Sep2017*/RAW-RECO
+Protect dataset.name == /*/Run2017*-17Nov2017*/RAW-RECO
+
+Protect dataset.name == /SingleMuon/Run2017*-ZMu-PromptReco-v*/RAW-RECO
+Protect dataset.name == /MET/Run2016B-HighMET-15Feb2017_ver2-v1/RAW-RECO
+Protect dataset.name == /MET/Run2016D-HighMET-15Feb2017-v1/RAW-RECO
+Protect dataset.name == /MET/Run2016E-HighMET-15Feb2017-v1/RAW-RECO
+Protect dataset.name == /MET/Run2016F-HighMET-15Feb2017-v1/RAW-RECO
+Protect dataset.name == /MET/Run2016G-HighMET-15Feb2017-v1/RAW-RECO
+
+Delete dataset.name == /*/*/RAW-RECO
+
+# Delete RAWAODSIM
+
+Delete dataset.name == /*/*/RAWAODSIM
+
+# Delete samples for completed upgrade studies
+
+Protect dataset.name == /SingleNeutrino/PhaseIITDRSpring17DR-PU200BX12_91X_upgrade2023_realistic_v3-v1/*
+Protect dataset.name == /DarkSUSY_mH_125_mGammaD_20_cT_0_TuneCUETP8M1_14TeV_pythia8/PhaseIITDRSpring17DR-noPU_91X_upgrade2023_realistic_v3-v2/GEN-SIM-RECO
+Protect dataset.name == /DarkSUSY_mH_125_mGammaD_20_cT_10_TuneCUETP8M1_14TeV_pythia8/PhaseIITDRSpring17DR-noPU_91X_upgrade2023_realistic_v3-v2/GEN-SIM-RECO
+Protect dataset.name == /DarkSUSY_mH_125_mGammaD_20_cT_100_TuneCUETP8M1_14TeV_pythia8/PhaseIITDRSpring17DR-noPU_91X_upgrade2023_realistic_v3-v2/GEN-SIM-RECO
+Protect dataset.name == /DarkSUSY_mH_125_mGammaD_20_cT_1000_TuneCUETP8M1_14TeV_pythia8/PhaseIITDRSpring17DR-noPU_91X_upgrade2023_realistic_v3-v2/GEN-SIM-RECO
+Protect dataset.name == /DisplacedMuons_Pt2to50_Dxy0to500-pythia8-gun/PhaseIITDRSpring17DR-noPUBX8_91X_upgrade2023_realistic_v3-v3/GEN-SIM-DIGI-RAW
+Protect dataset.name == /DisplacedMuons_Pt2to50_Dxy0to500-pythia8-gun/PhaseIITDRSpring17DR-PU200BX8_91X_upgrade2023_realistic_v3-v8/GEN-SIM-DIGI-RAW
+Protect dataset.name == /DisplacedSUSY_SmuonToMuNeutralino_M-*_CTau-*_TuneCUETP8M1_14TeV-pythia8/PhaseIITDRSpring17DR-noPU_91X_upgrade2023_realistic_v3-*/AODSIM
+Protect dataset.name == /DisplacedSUSY_SmuonToMuNeutralino_M-*_CTau-*_TuneCUETP8M1_14TeV-pythia8/PhaseIITDRSpring17DR-noPU_91X_upgrade2023_realistic_v3-*/GEN-SIM-RECO
+Protect dataset.name == /DisplacedSUSY_SmuonToMuNeutralino_M-*_CTau-*_TuneCUETP8M1_14TeV-pythia8/PhaseIITDRSpring17DR-PU200_91X_upgrade2023_realistic_v3-*/AODSIM
+Protect dataset.name == /DisplacedSUSY_SmuonToMuNeutralino_M-*_CTau-*_TuneCUETP8M1_14TeV-pythia8/PhaseIITDRSpring17DR-PU200_91X_upgrade2023_realistic_v3-*/GEN-SIM-RECO
+Protect dataset.name == /DsTau3Mu_TuneCUETP8M1_14TeV_pythia8/PhaseIITDRSpring17DR-noPU_91X_upgrade2023_realistic_v3-v1/AODSIM
+Protect dataset.name == /DsTau3Mu_TuneCUETP8M1_14TeV_pythia8/PhaseIITDRSpring17DR-PU200_91X_upgrade2023_realistic_v3-v1/AODSIM
+Protect dataset.name == /DYJetsToLL_M-50_TuneCUETP8M1_14TeV-madgraphMLM-pythia8/PhaseIITDRSpring17DR-noPU_91X_upgrade2023_realistic_v3-v1/AODSIM
+Protect dataset.name == /DYJetsToLL_M-50_TuneCUETP8M1_14TeV-madgraphMLM-pythia8/PhaseIITDRSpring17DR-PU200_91X_upgrade2023_realistic_v3-v1/AODSIM
+Protect dataset.name == /DYToMuMu_M_20_TuneCUETP8M1_14TeV_pythia8/PhaseIITDRSpring17DR-noPUBX8_91X_upgrade2023_realistic_v3-v3/GEN-SIM-RECO
+Protect dataset.name == /DYToMuMu_M_20_TuneCUETP8M1_14TeV_pythia8/PhaseIITDRSpring17DR-PU200BX8_91X_upgrade2023_realistic_v3-v7/GEN-SIM-DIGI-RAW
+Protect dataset.name == /DYToMuMu_M_20_TuneCUETP8M1_14TeV_pythia8/PhaseIITDRSpring17DR-PU200BX8_91X_upgrade2023_realistic_v3-v7/GEN-SIM-RECO
+Protect dataset.name == /Nu_E10-pythia8-gun/PhaseIITDRSpring17DR-PU200BX8_91X_upgrade2023_realistic_v3-v9/GEN-SIM-DIGI-RAW
+Protect dataset.name == /Nu_E10-pythia8-gun/PhaseIITDRSpring17DR-PU200BX8_91X_upgrade2023_realistic_v3-v9/GEN-SIM-RECO
+Protect dataset.name == /QCD_Pt-20toInf_MuEnrichedPt15_TuneCUETP8M1_14TeV_pythia8/PhaseIITDRSpring17DR-noPU_91X_upgrade2023_realistic_v3-v1/AODSIM
+Protect dataset.name == /QCD_Pt-20toInf_MuEnrichedPt15_TuneCUETP8M1_14TeV_pythia8/PhaseIITDRSpring17DR-noPU_91X_upgrade2023_realistic_v3-v2/GEN-SIM-RECO
+Protect dataset.name == /QCD_Pt-20toInf_MuEnrichedPt15_TuneCUETP8M1_14TeV_pythia8/PhaseIITDRSpring17DR-noPU_91X_upgrade2023_realistic_v3-v5/GEN-SIM-RECO
+Protect dataset.name == /QCD_Pt-20toInf_MuEnrichedPt15_TuneCUETP8M1_14TeV_pythia8/PhaseIITDRSpring17DR-PU200_91X_upgrade2023_realistic_v3-v1/AODSIM
+Protect dataset.name == /QCD_Pt-20toInf_MuEnrichedPt15_TuneCUETP8M1_14TeV_pythia8/PhaseIITDRSpring17DR-PU200_91X_upgrade2023_realistic_v3-v2/GEN-SIM-RECO
+Protect dataset.name == /QCD_Pt-20toInf_MuEnrichedPt15_TuneCUETP8M1_14TeV_pythia8/PhaseIITDRSpring17DR-PU200_91X_upgrade2023_realistic_v3-v6/GEN-SIM-RECO
+Protect dataset.name == /QCDBBar_Pt-15to7000_MuEnriched_TuneCUETP8M1_14TeV_pythia8/PhaseIITDRSpring17DR-noPU_91X_upgrade2023_realistic_v3-v1/AODSIM
+Protect dataset.name == /QCDBBar_Pt-15to7000_MuEnriched_TuneCUETP8M1_14TeV_pythia8/PhaseIITDRSpring17DR-PU200_91X_upgrade2023_realistic_v3-v1/AODSIM
+Protect dataset.name == /QCDCCbar_Pt-15to7000_MuEnriched_TuneCUETP8M1_14TeV_pythia8/PhaseIITDRSpring17DR-noPU_91X_upgrade2023_realistic_v3-v1/AODSIM
+Protect dataset.name == /QCDCCbar_Pt-15to7000_MuEnriched_TuneCUETP8M1_14TeV_pythia8/PhaseIITDRSpring17DR-PU200_91X_upgrade2023_realistic_v3-v1/AODSIM
+Protect dataset.name == /TTbar_TuneCUETP8M1_14TeV_pythia8/PhaseIITDRSpring17DR-noPUBX8_91X_upgrade2023_realistic_v3-v1/GEN-SIM-DIGI-RAW
+Protect dataset.name == /TTbar_TuneCUETP8M1_14TeV_pythia8/PhaseIITDRSpring17DR-noPUBX8_91X_upgrade2023_realistic_v3-v1/GEN-SIM-RECO
+Protect dataset.name == /TTbar_TuneCUETP8M1_14TeV_pythia8/PhaseIITDRSpring17DR-PU200BX8_91X_upgrade2023_realistic_v3-v1/GEN-SIM-DIGI-RAW
+Protect dataset.name == /TTbar_TuneCUETP8M1_14TeV_pythia8/PhaseIITDRSpring17DR-PU200BX8_91X_upgrade2023_realistic_v3-v1/GEN-SIM-RECO
+Protect dataset.name == /TTTo2L2Nu_TuneCUETP8M1_14TeV-powheg-pythia8/PhaseIITDRSpring17DR-noPU_91X_upgrade2023_realistic_v3-v4/GEN-SIM-RECO
+Protect dataset.name == /TTTo2L2Nu_TuneCUETP8M1_14TeV-powheg-pythia8/PhaseIITDRSpring17DR-PU200_91X_upgrade2023_realistic_v3-v3/GEN-SIM-RECO
+Protect dataset.name == /TTTo2L2Nu_TuneCUETP8M1_14TeV-powheg-pythia8/PhaseIITDRSpring17wmLHEGS-91X_upgrade2023_realistic_v3-v1/GEN-SIM
+Protect dataset.name == /TTTo2L2Nu_TuneCUETP8M1_14TeV-powheg-pythia8/PhaseIITDRSpring17wmLHEGS-91X_upgrade2023_realistic_v3-v1/LHE
+Protect dataset.name == /DYToMuMu_M_20_TuneCUETP8M1_14TeV_pythia8/PhaseIITDRSpring17DR-noPUBX8_91X_upgrade2023_realistic_v3-v3/GEN-SIM-DIGI-RAW
+Protect dataset.name == /SingleNeutrino/PhaseIITDRSpring17DR-PU200BX12_91X_upgrade2023_realistic_v3-v1/GEN-SIM-DIGI-RAW
+Protect dataset.name == /SingleNeutrino/PhaseIITDRSpring17DR-PU200BX12_91X_upgrade2023_realistic_v3-v1/GEN-SIM-DIGI-RAW
+Protect dataset.name == /SingleNeutrino/PhaseIITDRSpring17DR-PU200BX12_91X_upgrade2023_realistic_v3-v1/GEN-SIM-DIGI-RAW
+Protect dataset.name == /DoubleNuE1Eta14_31/PhaseIITDRSpring17DR-PU140_NoSmear_91X_upgrade2023_realistic_v3-v2/GEN-SIM-RECO
+Protect dataset.name == /DoubleNuE1Eta14_31/PhaseIITDRSpring17DR-PU200_NoSmear_91X_upgrade2023_realistic_v3-v2/GEN-SIM-RECO
+Protect dataset.name == /HSCPppstau_M_871_TuneCUETP8M1_14TeV_pythia8_Customised/PhaseIITDRSpring17DR-PU200BX8_Customised_91X_upgrade2023_realistic_v3-v2/GEN-SIM-RECO
+
+Delete dataset.name == /*/PhaseIITDRSpring17DR*/*
+
+Protect dataset.name == /Y4140ToJpsiPhi_EtaPtFilter_TuneZ2star_13TeV-pythia8/PhaseISpring17DR-FlatPU28to62HcalNZS_90X_upgrade2017_realistic_v20-v1/AODSIM
+Protect dataset.name == /Y4140ToJpsiPhi_EtaPtFilter_TuneZ2star_13TeV-pythia8/PhaseISpring17DR-FlatPU28to62HcalNZS_90X_upgrade2017_realistic_v20-v1/GEN-SIM-RAW
+Protect dataset.name == /Y4140ToJpsiPhi_TuneZ2star_13TeV-pythia8-evtgen/PhaseISpring17DR-FlatPU28to62HcalNZS_90X_upgrade2017_realistic_v20-v1/AODSIM
+Protect dataset.name == /Y4140ToJpsiPhi_TuneZ2star_13TeV-pythia8-evtgen/PhaseISpring17DR-FlatPU28to62HcalNZS_90X_upgrade2017_realistic_v20-v1/GEN-SIM-RAW
+
+Delete dataset.name == /*/PhaseISpring17DR*/*
+
+Protect dataset.name == /DYToMuMu_M_20_TuneCUETP8M1_14TeV_pythia8/PhaseIISNBSpring17DR-noPUBX8MAging_91X_upgrade2023_realistic_v3_3000fbm1-v3/GEN-SIM-RECO
+Protect dataset.name == /DYToMuMu_M_20_TuneCUETP8M1_14TeV_pythia8/PhaseIISNBSpring17DR-PU200BX8_91X_upgrade2023_realistic_v3-v6/GEN-SIM-DIGI-RAW
+Protect dataset.name == /DYToMuMu_M_20_TuneCUETP8M1_14TeV_pythia8/PhaseIISNBSpring17DR-PU200BX8_91X_upgrade2023_realistic_v3-v6/GEN-SIM-RECO
+Protect dataset.name == /DYToMuMu_M_20_TuneCUETP8M1_14TeV_pythia8/PhaseIISNBSpring17DR-PU200BX8ANoME0_91X_upgrade2023_realistic_v3_3000fbm1_MaskedME0-v5/GEN-SIM-DIGI-RAW
+Protect dataset.name == /DYToMuMu_M_20_TuneCUETP8M1_14TeV_pythia8/PhaseIISNBSpring17DR-PU200BX8ANoME0_91X_upgrade2023_realistic_v3_3000fbm1_MaskedME0-v5/GEN-SIM-RECO
+Protect dataset.name == /DYToMuMu_M_20_TuneCUETP8M1_14TeV_pythia8/PhaseIISNBSpring17DR-PU200BX8ANoME0GE21iRPC_91X_upgrade2023_realistic_v3_3000fbm1_MaskedME0GE21iRPC-v5/GEN-SIM-DIGI-RAW
+Protect dataset.name == /DYToMuMu_M_20_TuneCUETP8M1_14TeV_pythia8/PhaseIISNBSpring17DR-PU200BX8ANoME0GE21iRPC_91X_upgrade2023_realistic_v3_3000fbm1_MaskedME0GE21iRPC-v5/GEN-SIM-RECO
+Protect dataset.name == /DYToMuMu_M_20_TuneCUETP8M1_14TeV_pythia8/PhaseIISNBSpring17DR-PU200BX8ANoME0iRPC_91X_upgrade2023_realistic_v3_3000fbm1_MaskedME0iRPC-v5/GEN-SIM-DIGI-RAW
+Protect dataset.name == /DYToMuMu_M_20_TuneCUETP8M1_14TeV_pythia8/PhaseIISNBSpring17DR-PU200BX8ANoME0iRPC_91X_upgrade2023_realistic_v3_3000fbm1_MaskedME0iRPC-v5/GEN-SIM-RECO
+Protect dataset.name == /DYToMuMu_M_20_TuneCUETP8M1_14TeV_pythia8/PhaseIISNBSpring17DR-PU200BX8MAging_91X_upgrade2023_realistic_v3_3000fbm1-v5/GEN-SIM-DIGI-RAW
+Protect dataset.name == /DYToMuMu_M_20_TuneCUETP8M1_14TeV_pythia8/PhaseIISNBSpring17DR-PU200BX8MAging_91X_upgrade2023_realistic_v3_3000fbm1-v5/GEN-SIM-RECO
+Protect dataset.name == /MinBias_TuneCUETP8M1_14TeV_Neutron-pythia8/PhaseIISNBSpring17GS-91X_upgrade2023_realistic_v2-v1/GEN-SIM
+Protect dataset.name == /Nu_E10-pythia8-gun/PhaseIISNBSpring17DR-PU200BX8_91X_upgrade2023_realistic_v3-v7/GEN-SIM-DIGI-RAW
+Protect dataset.name == /Nu_E10-pythia8-gun/PhaseIISNBSpring17DR-PU200BX8_91X_upgrade2023_realistic_v3-v7/GEN-SIM-RECO
+Protect dataset.name == /Nu_E10-pythia8-gun/PhaseIISNBSpring17DR-PU200BX8MAging_91X_upgrade2023_realistic_v3_3000fbm1-v7/GEN-SIM-DIGI-RAW
+Protect dataset.name == /Nu_E10-pythia8-gun/PhaseIISNBSpring17DR-PU200BX8MAging_91X_upgrade2023_realistic_v3_3000fbm1-v7/GEN-SIM-RECO
+Protect dataset.name == /TTbar_TuneCUETP8M1_14TeV_pythia8/PhaseIISNBSpring17DR-noPUBX8MAging_91X_upgrade2023_realistic_v3_3000fbm1-v4/GEN-SIM-DIGI-RAW
+Protect dataset.name == /TTbar_TuneCUETP8M1_14TeV_pythia8/PhaseIISNBSpring17DR-noPUBX8MAging_91X_upgrade2023_realistic_v3_3000fbm1-v4/GEN-SIM-RECO
+Protect dataset.name == /TTbar_TuneCUETP8M1_14TeV_pythia8/PhaseIISNBSpring17DR-PU200BX8_91X_upgrade2023_realistic_v3-v4/GEN-SIM-DIGI-RAW
+Protect dataset.name == /TTbar_TuneCUETP8M1_14TeV_pythia8/PhaseIISNBSpring17DR-PU200BX8_91X_upgrade2023_realistic_v3-v4/GEN-SIM-RECO
+Protect dataset.name == /TTbar_TuneCUETP8M1_14TeV_pythia8/PhaseIISNBSpring17DR-PU200BX8MAging_91X_upgrade2023_realistic_v3_3000fbm1-v4/GEN-SIM-DIGI-RAW
+Protect dataset.name == /TTbar_TuneCUETP8M1_14TeV_pythia8/PhaseIISNBSpring17DR-PU200BX8MAging_91X_upgrade2023_realistic_v3_3000fbm1-v4/GEN-SIM-RECO
+
+Delete dataset.name == /*/PhaseIISNBSpring17DR*/*
+
+# Default is Protect
+Protect
