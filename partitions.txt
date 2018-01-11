@@ -1,0 +1,13 @@
+# Partition definitions
+
+AnalysisOps:  blockreplica.owner == AnalysisOps
+DataOps:      blockreplica.owner == DataOps
+RelVal:       blockreplica.owner == RelVal
+caf-comm:     blockreplica.owner == caf-comm
+caf-alca:     blockreplica.owner == caf-alca
+local:        blockreplica.owner == local
+IB RelVal:    blockreplica.owner == IB RelVal
+Unsubscribed: blockreplica.owner == None
+Express:      blockreplica.owner == express and dataset.name == /*/*Express*/*
+Tape:         site.storage_type == MSS
+Physics:      [AnalysisOps, DataOps]
