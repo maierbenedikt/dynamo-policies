@@ -9,7 +9,7 @@ When site.status == MORGUE
 Until site.status != MORGUE and site.occupancy < 0.85
 
 ### Replica protection / deletion policies
-Protect site.name == T*_MSS
+Ignore site.name == T*_MSS
 
 ProtectBlock blockreplica.is_locked
 

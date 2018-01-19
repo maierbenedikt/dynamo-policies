@@ -8,7 +8,7 @@ When site.occupancy > 0.9
 Until site.occupancy < 0.85
 
 ### Replica protection / deletion policies
-Protect site.name == T*_MSS
+Ignore site.name == T*_MSS
 
 ProtectBlock blockreplica.is_locked
 
