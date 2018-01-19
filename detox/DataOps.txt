@@ -1,11 +1,15 @@
+Partition DataOps
+
 ### Target sites
-On site.name in [T0_CERN_CH_Disk T1_*_Disk T2_*]
+On site.name in [T*_MSS T0_CH_CERN_Disk T1_*_Disk T2_*]
 
 ### Deletion trigger
 When site.occupancy > 0.9
 Until site.occupancy < 0.85
 
 ### Replica protection / deletion policies
+Ignore site.name == T*_MSS
+
 ProtectBlock blockreplica.is_locked
 
 Protect replica.incomplete

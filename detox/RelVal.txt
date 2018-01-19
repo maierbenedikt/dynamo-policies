@@ -1,3 +1,5 @@
+Partition RelVal
+
 ### Target sites
 On site.name == T2_CH_CERN
 
