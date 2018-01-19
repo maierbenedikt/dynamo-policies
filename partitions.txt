@@ -1,13 +1,16 @@
 # Partition definitions
 
-AnalysisOps:  blockreplica.owner == AnalysisOps
-DataOps:      blockreplica.owner == DataOps
+AnalysisOps:  blockreplica.owner == AnalysisOps and site.storage_type == DISK
+DataOpsDisk:  blockreplica.owner == DataOps and site.storage_type == DISK
 RelVal:       blockreplica.owner == RelVal
-caf-comm:     blockreplica.owner == caf-comm
-caf-alca:     blockreplica.owner == caf-alca
-local:        blockreplica.owner == local
-IB RelVal:    blockreplica.owner == IB RelVal
-Unsubscribed: blockreplica.owner == None
-Express:      blockreplica.owner == express and dataset.name == /*/*Express*/*
+caf-comm:     blockreplica.owner == caf-comm and site.storage_type == DISK
+caf-alca:     blockreplica.owner == caf-alca and site.storage_type == DISK
+local:        blockreplica.owner == local and site.storage_type == DISK
+IB RelVal:    blockreplica.owner == IB RelVal and site.storage_type == DISK
+Unsubscribed: blockreplica.owner == None and site.storage_type == DISK
+Express:      blockreplica.owner == express and dataset.name == /*/*Express*/* and site.storage_type == DISK
 Tape:         site.storage_type == MSS
-Physics:      [AnalysisOps, DataOps]
+# Tape partition with no quota
+PhysicsTape:  site.storage_type == MSS
+Physics:      [AnalysisOps, DataOpsDisk, PhysicsTape]
+DataOps:      [DataOpsDisk, PhysicsTape]

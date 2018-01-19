@@ -1,7 +1,7 @@
 Partition Physics
 
 ### Target sites
-On site.name in [T0_CH_CERN_Disk T1_*_Disk T2_*]
+On site.name in [T*_MSS T0_CH_CERN_Disk T1_*_Disk T2_*]
 
 ### Deletion trigger
 When site.occupancy > 0.9
@@ -9,6 +9,8 @@ When site.status == MORGUE
 Until site.status != MORGUE and site.occupancy < 0.85
 
 ### Replica protection / deletion policies
+Protect site.name == T*_MSS
+
 ProtectBlock blockreplica.is_locked
 
 Delete dataset.status == DEPRECATED and dataset.last_update older_than 1 week ago
@@ -20,7 +22,7 @@ Protect replica.is_last_transfer_source
 
 Protect dataset.name == /*/*/RAW and dataset.on_tape != FULL
 
-Protect dataset.name == /*/*/RECO and dataset.num_full_disk_copy == 0 and dataset.last_update newer_than 90 days ago
+DismissBlock dataset.name == /*/*/RECO and dataset.last_update older_than 90 days ago and blockreplica.owner == DataOps
 
 ProtectBlock dataset.on_tape == NONE and blockreplica.owner == DataOps
 
