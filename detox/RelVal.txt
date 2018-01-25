@@ -1,7 +1,7 @@
 Partition RelVal
 
 ### Target sites
-On site.name == T2_CH_CERN
+On site.name in [T0_CH_CERN_Disk T1_*_Disk T2_*]
 
 ### Deletion trigger
 When site.occupancy > 0.9
@@ -10,7 +10,19 @@ Until site.occupancy < 0.85
 ### Replica protection / deletion policies
 Protect replica.incomplete
 
+ProtectBlock blockreplica.is_locked
+
+Delete site.name not in [T2_CH_CERN T1_US_FNAL_Disk]
+
+Dismiss replica.num_full_disk_copy_common_owner > 1
+
+Protect dataset.last_update newer_than 3 months ago
+
+Protect dataset.is_latest_production_release
+
+Protect dataset.name == /*/*/GEN* and dataset.last_update newer_than 12 months ago
+
 Dismiss
 
 ### Candidate ordering
-Order increasing replica.last_used
+Order increasing dataset.last_update
