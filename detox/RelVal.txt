@@ -14,7 +14,7 @@ ProtectBlock blockreplica.is_locked
 
 Protect replica.num_full_disk_copy_common_owner == 1
 
-Delete site.name not in [T2_CH_CERN T1_US_FNAL_Disk]
+Delete site.name notin [T2_CH_CERN T1_US_FNAL_Disk]
 
 Protect dataset.last_update newer_than 3 months ago
 
