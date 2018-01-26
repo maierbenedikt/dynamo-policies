@@ -12,9 +12,9 @@ Protect replica.incomplete
 
 ProtectBlock blockreplica.is_locked
 
-Protect replica.num_full_disk_copy_common_owner == 1
+Delete site.name notin [T2_CH_CERN T1_US_FNAL_Disk] and replica.num_full_disk_copy_common_owner > 1
 
-Delete site.name notin [T2_CH_CERN T1_US_FNAL_Disk]
+Dismiss replica.num_full_disk_copy_common_owner > 1
 
 Protect dataset.last_update newer_than 3 months ago
 
