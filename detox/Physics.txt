@@ -13,6 +13,8 @@ Ignore site.name == T*_MSS
 
 ProtectBlock blockreplica.is_locked
 
+Protect replica.enforcer_protected
+
 Delete dataset.status == DEPRECATED and dataset.last_update older_than 1 week ago
 Delete dataset.status == INVALID and dataset.last_update older_than 1 week ago
 
