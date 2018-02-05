@@ -3,7 +3,8 @@
       "usa_miniaod": {
          "datasets": ["/*/*/MINIAOD*"],
          "num_copies": 1,
-         "sites": ["T1_US_FNAL_Disk","T2_US_*"]
+         "sites": ["T1_US_FNAL_Disk","T2_US_*"],
+	 "consider_tape": false
       }
    }
 }
